@@ -13,6 +13,18 @@ class User extends Controller  {
 		$this->_userRepo = new UserRepository();
 	}
 	
+	/**
+	 * 
+	 * {@inheritDoc}
+	 * @see \bomi\mvcat\base\Controller::beforeAction()
+	 */
+	public function beforeAction(array $params): bool {
+		$this->extendTemplate("main", "title", "Title Demo User");
+		$this->extendTemplate("main", "header", "Header Demo User");
+		return parent::beforeAction($params);
+	}
+	
+	
 	public function apiAction(array $params) {
 		$params["users"] = $this->_userRepo->getAll();
 		echo $this->view("users/api.php", $params);
@@ -38,7 +50,7 @@ class User extends Controller  {
 	}
 
 	public function createAction(array $params) {
-		$form = $this->getRequest()->getPostData();
+		$form = $this->getRequestContext()->getPostData();
 		$this->_userRepo->add($form["fname"], $form["lname"], isset($form["active"]));
 		echo $this->indexAction($params);
 	}

@@ -6,32 +6,33 @@ use bomi\mvcat\core\data\context\RequestContext;
 use bomi\mvcat\exceptions\MvcException;
 
 abstract class Controller {
-	private static RequestContext $_requestContext;
-	private static array $_templates;
-	
 	private static string $_viewPath;
-	private static View $_view;
+	
+	private View $_view;
+	private array $_templates;
+	private RequestContext $_requestContext;	
 
-	protected function __construct() { 
-		static::$_view = new View();
+	public function __construct() { 
+		$this->_view = new View();
+		$this->_templates = array();
 	}
 	
 	protected function view(string $view, array $data = array(), string $template = null): string {
-		if ($template !== null && key_exists($template, static::$_templates)) {
-			return static::$_view->template(self::$_viewPath . $view, $data, static::$_templates[$template]);
-		} else if ($template !== null && !key_exists($template, static::$_templates)) {
+		if ($template !== null && key_exists($template, $this->_templates)) {
+			return $this->_view->template(self::$_viewPath . $view, $data, $this->_templates[$template]);
+		} else if ($template !== null && !key_exists($template, $this->_templates)) {
 			throw new MvcException("Template '$template' not defined in MvcFactory using method template(youtemplate)");
 		}
-		return static::$_view->view(self::$_viewPath . $view, $data);
+		return $this->_view->view(self::$_viewPath . $view, $data);
 	}
 	
-	protected function getRequest() : RequestContext {
-		return static::$_requestContext;
+	protected function getRequestContext() : RequestContext {
+		return $this->_requestContext;
 	}
 	
 	protected function extendTemplate(string $templateName, string $key, string $value) {
-		if (key_exists($templateName, static::$_templates)) {
-			static::$_templates[$templateName][$key] = $value;
+		if (key_exists($templateName, $this->_templates)) {
+			$this->_templates[$templateName]->addValue($key, $value);
 		}
 	}
 	
@@ -47,4 +48,12 @@ abstract class Controller {
 	public function afterAction(): void { }
 	
 	public abstract function indexAction(array $params);
+	
+	private function setTemplates($templates) {
+		$this->_templates = $templates;
+	}
+	
+	private function setRequestContext($context) {
+		$this->_requestContext = $context;
+	}
 }

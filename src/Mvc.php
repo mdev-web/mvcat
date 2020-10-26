@@ -6,7 +6,7 @@ use bomi\mvcat\core\data\context\RequestContext;
 use bomi\mvcat\exceptions\MvcException;
 use bomi\mvcat\core\MvcContext;
 
-class Mvc implements IMvc {
+class Mvc {
 	protected string $_controller;
 	protected string $_action;
 	protected array $_parameters = array ();
@@ -56,7 +56,7 @@ class Mvc implements IMvc {
 	}
 
 	protected function addTemplates($controller, $value) {
-		$this->_addProperty($controller, "_templates", $value);
+		$this->_addMethod($controller, "setTemplates", $value);
 	}
 
 	protected function addViewDestination($controller, $value) {
@@ -64,7 +64,7 @@ class Mvc implements IMvc {
 	}
 
 	protected function addRequestContext($controller, $value) {
-		$this->_addProperty($controller, "_requestContext", $value);
+		$this->_addMethod($controller, "setRequestContext", $value);
 	}
 
 	private function _addMethod($controller, $name, $value) {
