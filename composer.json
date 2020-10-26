@@ -1,0 +1,40 @@
+{
+	"autoload" : {
+		"psr-4" : {
+			"bomi\\mvcat\\" : "src/",
+			"demo\\" : "demo/"
+		},
+		"exclude-from-classmap" : [
+			"/demo/",
+			"/tests/"
+		]
+	},
+	"name" : "bomi/mvcat",
+	"description" : "MVC framework using configuration file",
+	"type" : "library",
+	"license" : "MIT",
+	"config" : {
+		"vendor-dir" : "libs/vendor"
+	},
+	"autoload-dev" : {
+		"psr-4" : {
+			"test\\" : "test"
+		}
+	},
+	"authors" : [{
+			"name" : "mboehm",
+			"role" : "dev"
+		}
+	],
+	"require" : {
+		"php" : ">=7.4",
+		"tebru/gson-php" : "^0.7"
+	},
+	"keywords" : [
+		"mvc",
+		"framework",
+		"configuration",
+		"model view controller",
+		"template"
+	]
+}

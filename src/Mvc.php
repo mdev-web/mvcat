@@ -1,0 +1,101 @@
+<?php
+namespace bomi\mvcat;
+
+use bomi\mvcat\base\Controller;
+use bomi\mvcat\core\data\context\RequestContext;
+use bomi\mvcat\exceptions\MvcException;
+use bomi\mvcat\core\MvcContext;
+
+class Mvc implements IMvc {
+	protected string $_controller;
+	protected string $_action;
+	protected array $_parameters = array ();
+	protected string $_viewsDestination;
+	protected RequestContext $_requestContext;
+	protected array $_templates = array ();
+
+	protected function __construct() {}
+
+	private function setContext(MvcContext $context) {
+		$this->_controller = $context->getRouteContext()->getController();
+		$this->_action = strtolower($context->getRouteContext()->getAction()) . "Action";
+		$this->_parameters = $context->getRouteContext()->getParameters();
+		$this->_viewsDestination = $context->getRouteContext()->getViewsDestination();
+		$this->_requestContext = $context->getRouteContext()->getRequestContext();
+	}
+
+	public static function create(MvcContext $context): self {
+		$mvc = new self();
+		$mvc->setContext($context);
+		return $mvc;
+	}
+
+	public function setTemplates(array $templates): void {
+		$this->_templates = $templates;
+	}
+
+	public function execute(): void {
+		if ($this->isSupportedClass($this->_controller)) {
+			$controller = new $this->_controller();
+
+			$this->addViewDestination($controller, $this->_viewsDestination);
+			$this->addRequestContext($controller, $this->_requestContext);
+			$this->addTemplates($controller, $this->_templates);
+
+			if (method_exists($controller, $this->_action) && $controller->beforeAction($this->_parameters)) {
+				$controller->{$this->_action}($this->_parameters);
+				$controller->afterAction();
+			} else {
+				throw new MvcException("Method {$this->_action} not found in controller {$this->_controller}", 404);
+			}
+		}
+	}
+
+	protected function isSupportedClass($class) {
+		return $this->_isClassExists($this->_controller) && $this->_isClassFromBaseController($this->_controller);
+	}
+
+	protected function addTemplates($controller, $value) {
+		$this->_addProperty($controller, "_templates", $value);
+	}
+
+	protected function addViewDestination($controller, $value) {
+		$this->_addProperty($controller, "_viewPath", $value);
+	}
+
+	protected function addRequestContext($controller, $value) {
+		$this->_addProperty($controller, "_requestContext", $value);
+	}
+
+	private function _addMethod($controller, $name, $value) {
+		$reflectionClass = new \ReflectionClass($controller);
+		$reflectionParentClass = $reflectionClass->getParentClass();
+		$method = $reflectionParentClass->getMethod($name);
+		$method->setAccessible(true);
+		$method->invokeArgs($controller, [ 
+				$value
+		]);
+	}
+
+	private function _addProperty($controller, $name, $value) {
+		$reflectionClass = new \ReflectionClass($controller);
+		$reflectionParentClass = $reflectionClass->getParentClass();
+		$reflectionProperty = $reflectionParentClass->getProperty($name);
+		$reflectionProperty->setAccessible(true);
+		$reflectionProperty->setValue($value);
+	}
+
+	private function _isClassExists($class) {
+		if (class_exists($class)) {
+			return true;
+		}
+		throw new MvcException("Controller $class not exists", 404);
+	}
+
+	private function _isClassFromBaseController($class) {
+		if (is_subclass_of($class, Controller::class)) {
+			return true;
+		}
+		throw new MvcException("Controller $class not inheriting parent class " . Controller::class);
+	}
+}
