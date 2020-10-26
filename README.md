@@ -2,7 +2,7 @@
 
 A simple MVC framework created in PHP. This framework use configuration file to find requested urls. For more understanding you can start demo project. 
 
-![](https://img.shields.io/github/release/devmboehm/bomi/mvcat.svg) ![](https://img.shields.io/github/languages/top/devmboehm/bomi/mvcat.svg)
+![](https://img.shields.io/github/release/devmboehm/mvcat.svg) ![](https://img.shields.io/github/languages/top/devmboehm\mvcat.svg)
 
 ### Prerequisites
 - PHP version 7.4 or higher installed on your machine
