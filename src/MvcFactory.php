@@ -5,7 +5,7 @@ use Exception;
 use bomi\mvcat\base\Template;
 use bomi\mvcat\core\MvcContext;
 
-class MvcFactory {	
+final class MvcFactory {	
 	private Mvc $_mvc;
 	private $_exception = null;
 
@@ -60,7 +60,7 @@ class MvcFactory {
 			$this->_mvc->execute();
 			return $callback(200);
 		} catch (Exception $e) {
-			return $callback(500, $this->_exception);
+			return $callback(500, $e);
 		}
 	}
 }
