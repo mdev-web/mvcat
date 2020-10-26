@@ -13,8 +13,6 @@ MvcBuilder::build()
 		}
 	});
 
-	
-	
 function setMainTemlate() : Template {
 	$template = new Template("public/templates/main.phtml");
 	$template->setValues(
