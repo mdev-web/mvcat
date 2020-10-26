@@ -5,7 +5,7 @@ use Exception;
 use bomi\mvcat\base\Template;
 use bomi\mvcat\core\MvcContext;
 
-final class MvcFactory {	
+final class MvcBuilder {	
 	private Mvc $_mvc;
 	private $_exception = null;
 
@@ -16,7 +16,7 @@ final class MvcFactory {
 		$this->_templates = array ();
 	}
 
-	public static function build(): MvcFactory {
+	public static function build() : self {
 		return new self();
 	}
 
@@ -26,7 +26,7 @@ final class MvcFactory {
 	 *        	url to configuration file
 	 * @return Mvc instance
 	 */
-	public function configure(string $configurationFile): MvcFactory {
+	public function configure(string $configurationFile): self {
 		try {
 			$this->_mvc = Mvc::create(MvcContext::get($configurationFile));
 		} catch (Exception $e) {

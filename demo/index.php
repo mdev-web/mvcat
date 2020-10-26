@@ -1,10 +1,10 @@
 <?php 
 session_start();
-use bomi\mvcat\MvcFactory;
 use bomi\mvcat\base\Template;
+use bomi\mvcat\MvcBuilder;
 require_once '../libs/vendor/autoload.php';
 
-MvcFactory::build()
+MvcBuilder::build() 
 	->template("main", setMainTemlate())
 	->configure("routes.json")
 	->execute(function(int $code, Exception $exception = null){
