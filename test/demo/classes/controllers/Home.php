@@ -1,5 +1,5 @@
 <?php
-namespace test\demo\classes\controllers;
+namespace bomi\mvcat\test\demo\classes\controllers;
 
 use bomi\mvcat\base\Controller;
 

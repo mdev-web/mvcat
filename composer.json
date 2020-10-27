@@ -2,11 +2,7 @@
 	"autoload" : {
 		"psr-4" : {
 			"bomi\\mvcat\\" : "src/"
-		},
-		"exclude-from-classmap" : [
-			"/demo/",
-			"/tests/"
-		]
+		}
 	},
 	"name" : "bomi/mvcat",
 	"description" : "MVC framework using configuration file",
@@ -17,7 +13,7 @@
 	},
 	"autoload-dev" : {
 		"psr-4" : {
-			"test\\" : "test"
+			"bomi\\mvcat\\test\\" : "test/"
 		}
 	},
 	"authors" : [{

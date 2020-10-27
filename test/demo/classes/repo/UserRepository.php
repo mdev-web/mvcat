@@ -1,7 +1,7 @@
 <?php
-namespace test\demo\classes\repo;
+namespace bomi\mvcat\test\demo\classes\repo;
 
-use test\demo\classes\models\User;
+use bomi\mvcat\test\demo\classes\models\User;
 
 class UserRepository {
 	

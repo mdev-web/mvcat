@@ -2,7 +2,7 @@
 	"version" : "v.1.0.0",
 	"destinations" : {
 		"views": "public/views/",
-		"controllers": "test/demo/classes/controllers/"
+		"controllers": "bomi/mvcat/test/demo/classes/controllers/"
 	},
 	"routes" : [
 		{

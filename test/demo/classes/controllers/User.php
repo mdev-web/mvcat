@@ -1,8 +1,8 @@
 <?php
-namespace test\demo\classes\controllers;
+namespace bomi\mvcat\test\demo\classes\controllers;
 
 use bomi\mvcat\base\Controller;
-use test\demo\classes\repo\UserRepository;
+use bomi\mvcat\test\demo\classes\repo\UserRepository;
 
 class User extends Controller  {
 	
