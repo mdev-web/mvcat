@@ -1,8 +1,7 @@
 {
 	"autoload" : {
 		"psr-4" : {
-			"bomi\\mvcat\\" : "src/",
-			"demo\\" : "demo/"
+			"bomi\\mvcat\\" : "src/"
 		},
 		"exclude-from-classmap" : [
 			"/demo/",

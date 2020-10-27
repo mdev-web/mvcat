@@ -1,7 +1,7 @@
 <?php
-namespace demo\classes\repo;
+namespace test\demo\classes\repo;
 
-use demo\classes\models\User;
+use test\demo\classes\models\User;
 
 class UserRepository {
 	

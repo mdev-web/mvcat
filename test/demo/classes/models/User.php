@@ -1,6 +1,6 @@
 <?php
 
-namespace demo\classes\models;
+namespace test\demo\classes\models;
 
 use JsonSerializable;
 
