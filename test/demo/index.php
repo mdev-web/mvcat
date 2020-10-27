@@ -23,7 +23,3 @@ function setMainTemlate() : Template {
 	$template->addValue("baseUrl", "/mvcat/test/demo/");
 	return $template;
 }
-
-
-
-
