@@ -2,7 +2,7 @@
 namespace bomi\mvcat\demo\classes\controllers;
 
 use bomi\mvcat\base\Controller;
-use bomi\mvcat\test\demo\classes\repo\UserRepository;
+use bomi\mvcat\demo\classes\repo\UserRepository;
 
 class User extends Controller  {
 	
