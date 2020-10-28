@@ -1,6 +1,6 @@
 <?php
 
-namespace bomi\mvcat\test\demo\classes\models;
+namespace bomi\mvcat\demo\classes\models;
 
 use JsonSerializable;
 

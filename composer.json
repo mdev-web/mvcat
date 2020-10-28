@@ -1,7 +1,8 @@
 {
 	"autoload" : {
 		"psr-4" : {
-			"bomi\\mvcat\\" : "src/"
+			"bomi\\mvcat\\" : "src/",
+			"bomi\\mvcat\\demo\\" : "demo/"
 		}
 	},
 	"name" : "bomi/mvcat",

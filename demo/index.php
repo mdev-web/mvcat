@@ -2,7 +2,7 @@
 session_start();
 use bomi\mvcat\base\Template;
 use bomi\mvcat\MvcBuilder;
-require_once '../../libs/vendor/autoload.php';
+require_once '../libs/vendor/autoload.php';
 
 MvcBuilder::build() 
 	->template("main", setMainTemlate())
@@ -20,6 +20,6 @@ function setMainTemlate() : Template {
 			"title" => "Demo",
 			"header" => "Main header")
 		);
-	$template->addValue("baseUrl", "/mvcat/test/demo/");
+	$template->addValue("baseUrl", "/mvcat/demo/");
 	return $template;
 }

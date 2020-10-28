@@ -5,7 +5,7 @@ RewriteEngine on
 
 # set your rewrite base
 # Edit this in your init method too if you script lives in a subfolder
-RewriteBase /mvcat/test/demo/
+RewriteBase /mvcat/demo/
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
