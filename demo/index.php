@@ -6,7 +6,7 @@ require_once '../libs/vendor/autoload.php';
 
 MvcBuilder::build() 
 	->template("main", setMainTemlate())
-	->configure("routes.json")
+	->configure("manifest.json")
 	->execute(function(int $code, Exception $exception = null){
 		if ($code !== 200) {
 			echo $exception->getMessage();
