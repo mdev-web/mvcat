@@ -1,5 +1,5 @@
 <?php
-namespace bomi\mvcat\demo\classes\repo;
+namespace bomi\mvcat\demo\classes\repositories;
 
 use bomi\mvcat\demo\classes\models\User;
 
