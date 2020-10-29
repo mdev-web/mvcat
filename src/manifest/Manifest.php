@@ -2,6 +2,7 @@
 namespace bomi\mvcat\manifest;
 use Tebru\Gson\Annotation\SerializedName;
 use bomi\mvcat\manifest\entities\Route;
+use bomi\mvcat\manifest\entities\Template;
 
 class Manifest {
 	
@@ -16,7 +17,6 @@ class Manifest {
 	public function getDestinations() : array {
 		return $this->_destinations;
 	}
-
 	
 	/** 
 	 * @var Route[]
@@ -26,7 +26,15 @@ class Manifest {
 	public function getRoutes(): array {
 		return $this->_routes;
 	} 
-	 
+	
+	/**
+	 * @var Template[]
+	 * @SerializedName("templates")
+	 */
+	private $_template;
+	public function getTemplate(): array {
+		return $this->_template;
+	} 
 
 	public function __construct() {}
 }

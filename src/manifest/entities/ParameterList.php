@@ -14,12 +14,8 @@ class ParameterList {
 		return $this->_action;
 	}
 
-	/**
-	 *
-	 * @SerializedName("parameters")
-	 */
+	/**  @SerializedName("parameters") */
 	private $_parameters;
-
 	public function getParameters() {
 		return $this->_parameters;
 	}
