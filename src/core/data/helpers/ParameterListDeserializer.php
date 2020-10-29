@@ -5,7 +5,7 @@ namespace bomi\mvcat\core\data\helpers;
 use Tebru\Gson\JsonDeserializer;
 use Tebru\PhpType\TypeToken;
 use Tebru\Gson\JsonDeserializationContext;
-use bomi\mvcat\core\data\routing\ParameterList;
+use bomi\mvcat\core\manifest\ParameterList;
 
 class ParameterListDeserializer implements JsonDeserializer {
 

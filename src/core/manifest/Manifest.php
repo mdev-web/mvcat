@@ -1,5 +1,5 @@
 <?php
-namespace bomi\mvcat\core\data\routing;
+namespace bomi\mvcat\core\manifest;
 use Tebru\Gson\Annotation\SerializedName;
 
 class Manifest {
@@ -25,15 +25,7 @@ class Manifest {
 	public function getRoutes(): array {
 		return $this->_routes;
 	} 
-	
-	/**
-	 * @var array
-	 * @SerializedName("catch")
-	 */
-	private $_catch;
-	public function getCatch(): array {
-		return $this->_catch;
-	} 
+	 
 
 	public function __construct() {}
 }

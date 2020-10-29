@@ -5,8 +5,8 @@ namespace bomi\mvcat\core\data\helpers;
 use Tebru\Gson\JsonDeserializer;
 use Tebru\PhpType\TypeToken;
 use Tebru\Gson\JsonDeserializationContext;
-use bomi\mvcat\core\data\routing\ParameterList;
-use bomi\mvcat\core\data\routing\Route;
+use bomi\mvcat\core\manifest\ParameterList;
+use bomi\mvcat\core\manifest\Route;
 
 class RouteDeserializer implements JsonDeserializer {
 

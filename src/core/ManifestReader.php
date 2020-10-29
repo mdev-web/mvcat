@@ -5,10 +5,10 @@ namespace bomi\mvcat\core;
 use bomi\mvcat\exceptions\FileNotFoundException;
 use bomi\mvcat\exceptions\JsonParsingException;
 use Tebru\Gson\Gson;
-use bomi\mvcat\core\data\routing\Manifest;
-use bomi\mvcat\core\data\routing\ParameterList;
+use bomi\mvcat\core\manifest\Manifest;
+use bomi\mvcat\core\manifest\ParameterList;
 use bomi\mvcat\core\data\helpers\ParameterListDeserializer;
-use bomi\mvcat\core\data\routing\Route;
+use bomi\mvcat\core\manifest\Route;
 use bomi\mvcat\core\data\helpers\RouteDeserializer;
 
 class ManifestReader {

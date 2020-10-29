@@ -1,5 +1,5 @@
 <?php
-namespace bomi\mvcat\core\data\routing;
+namespace bomi\mvcat\core\manifest;
 use Tebru\Gson\Annotation\SerializedName;
 
 class ParameterList {

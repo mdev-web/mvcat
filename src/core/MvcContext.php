@@ -1,7 +1,7 @@
 <?php
 namespace bomi\mvcat\core;
 
-use bomi\mvcat\core\data\routing\Manifest;
+use bomi\mvcat\core\manifest\Manifest;
 use bomi\mvcat\core\data\context\RequestContext;
 use bomi\mvcat\core\data\context\RouteContext;
 
