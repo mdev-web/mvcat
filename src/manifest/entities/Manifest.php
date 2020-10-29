@@ -1,5 +1,5 @@
 <?php
-namespace bomi\mvcat\core\manifest;
+namespace bomi\mvcat\manifest\entities;
 use Tebru\Gson\Annotation\SerializedName;
 
 class Manifest {

@@ -3,8 +3,8 @@ namespace bomi\mvcat\core;
 
 use bomi\mvcat\core\data\context\RequestContext;
 use bomi\mvcat\core\data\context\RouteContext;
-use bomi\mvcat\service\ManifestReader;
-use bomi\mvcat\core\manifest\Manifest;
+use bomi\mvcat\manifest\ManifestReader;
+use bomi\mvcat\manifest\entities\Manifest;
 
 class MvcContext {
 

@@ -1,11 +1,11 @@
 <?php
 
-namespace bomi\mvcat\core\manifest\helpers;
+namespace bomi\mvcat\manifest\helpers;
 
 use Tebru\Gson\JsonDeserializer;
 use Tebru\PhpType\TypeToken;
 use Tebru\Gson\JsonDeserializationContext;
-use bomi\mvcat\core\manifest\ParameterList;
+use bomi\mvcat\manifest\entities\ParameterList;
 
 class ParameterListDeserializer implements JsonDeserializer {
 

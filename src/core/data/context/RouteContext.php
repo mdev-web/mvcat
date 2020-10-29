@@ -1,9 +1,9 @@
 <?php
 namespace bomi\mvcat\core\data\context;
 
-use bomi\mvcat\core\manifest\Manifest;
-use bomi\mvcat\core\manifest\Route;
 use bomi\mvcat\exceptions\MvcException;
+use bomi\mvcat\manifest\entities\Manifest;
+use bomi\mvcat\manifest\entities\Route;
 
 class RouteContext {
 	
