@@ -4,8 +4,9 @@ namespace bomi\mvcat\context;
 use bomi\mvcat\exceptions\MvcException;
 use bomi\mvcat\manifest\Manifest;
 use bomi\mvcat\manifest\entities\Route;
+use bomi\mvcat\manifest\entities\Template;
 
-class RouteContext {
+class ManifestContext {
 	
 	private string $_controller;
 	public function getController() : string {
@@ -31,13 +32,19 @@ class RouteContext {
 	public function getViewsDestination() : string {
 		return $this->_viewsDestination;
 	}
+	
+	private array $_templates = [];
+	public function getTemplates(): array {
+		return $this->_templates;
+	}
 
-	private function __construct(Route $route, Manifest $routeMap, RequestContext $requestContext) {
+	private function __construct(Route $route, Manifest $manifest, RequestContext $requestContext) {
 		$this->_requestContext = $requestContext;
-		$this->_controller = $this->_buildController($route, $routeMap->getDestinations());
+		$this->_controller = $this->_buildController($route, $manifest->getDestinations());
 		$this->_action = $route->getParameters()->getAction();
 		$this->_parameters = $route->getParameters()->getParameters();
-		$this->_viewsDestination = $routeMap->getDestinations()["views"];
+		$this->_viewsDestination = $manifest->getDestinations()["views"];
+		$this->_setTemplates($manifest->getTemplates());
 	}
 	
 	public static function create(Manifest $routeMap, RequestContext $requestContext) {
@@ -67,6 +74,18 @@ class RouteContext {
 		$index = count($split) - 1;
 		$split[$index] = ucfirst($split[$index]);
 		return str_replace("/", "\\", $destinations["controllers"] . implode("/", $split));
+	}
+	
+	/**
+	 * 
+	 * @param Template[] $templates
+	 */
+	private function _setTemplates(array $templates) {		
+		/** @var Template $template */
+		foreach ($templates as $template) {
+			$this->_templates[$template->getName()] = $template;
+		}
+		
 	}
 }
 

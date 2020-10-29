@@ -11,14 +11,14 @@ class MvcContext {
 		return $this->_requestContext;
 	}
 	
-	private RouteContext $_routeContext;
-	public function getRouteContext() : RouteContext {
-		return $this->_routeContext;
+	private ManifestContext $_manifestContext;
+	public function getManifestContext() : ManifestContext {
+		return $this->_manifestContext;
 	}
 	
 	private function __construct(Manifest $manifest) {
 		$this->_requestContext = RequestContext::get();
-		$this->_routeContext = RouteContext::create($manifest, $this->_requestContext);
+		$this->_manifestContext = ManifestContext::create($manifest, $this->_requestContext);
 	}
 	
 	/**

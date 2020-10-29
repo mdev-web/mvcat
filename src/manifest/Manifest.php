@@ -31,9 +31,9 @@ class Manifest {
 	 * @var Template[]
 	 * @SerializedName("templates")
 	 */
-	private $_template;
-	public function getTemplate(): array {
-		return $this->_template;
+	private $_templates;
+	public function getTemplates(): array {
+		return $this->_templates;
 	} 
 
 	public function __construct() {}

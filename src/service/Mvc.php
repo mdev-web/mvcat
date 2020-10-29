@@ -17,11 +17,12 @@ class Mvc {
 	protected function __construct() {}
 
 	private function setContext(MvcContext $context) {
-		$this->_controller = $context->getRouteContext()->getController();
-		$this->_action = strtolower($context->getRouteContext()->getAction()) . "Action";
-		$this->_parameters = $context->getRouteContext()->getParameters();
-		$this->_viewsDestination = $context->getRouteContext()->getViewsDestination();
-		$this->_requestContext = $context->getRouteContext()->getRequestContext();
+		$this->_controller = $context->getManifestContext()->getController();
+		$this->_action = strtolower($context->getManifestContext()->getAction()) . "Action";
+		$this->_parameters = $context->getManifestContext()->getParameters();
+		$this->_viewsDestination = $context->getManifestContext()->getViewsDestination();
+		$this->_requestContext = $context->getManifestContext()->getRequestContext();
+		$this->_templates = $context->getManifestContext()->getTemplates();
 	}
 
 	public static function create(MvcContext $context): self {
