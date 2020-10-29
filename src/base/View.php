@@ -2,14 +2,16 @@
 
 namespace bomi\mvcat\base;
 
+use bomi\mvcat\manifest\entities\Template;
+
 class View {
 	public const VIEW_RENDER = "viewRender";
 
 	public function __construct() {}
 	
 	public function template(string $view, array $data = array(), Template $template = null) {
-		$template->addValue(self::VIEW_RENDER, $this->view($view, $data, $template->getValues()));
-		return $this->_render($template->getFile(), $data, $template->getValues());
+		$template->addVariable(self::VIEW_RENDER, $this->view($view, $data, $template->getVariables()));
+		return $this->_render($template->getPath(), $data, $template->getVariables());
 	}
 	
 	public function view(string $view, array $data, $values = array()) {

@@ -31,10 +31,6 @@ class Mvc {
 		return $mvc;
 	}
 
-	public function setTemplates(array $templates): void {
-		$this->_templates = $templates;
-	}
-
 	public function execute(): void {
 		if ($this->isSupportedClass($this->_controller)) {
 			$controller = new $this->_controller();

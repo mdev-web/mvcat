@@ -32,7 +32,7 @@ abstract class Controller {
 	
 	protected function extendTemplate(string $templateName, string $key, string $value) {
 		if (key_exists($templateName, $this->_templates)) {
-			$this->_templates[$templateName]->addValue($key, $value);
+			$this->_templates[$templateName]->addVariable($key, $value);
 		}
 	}
 	
