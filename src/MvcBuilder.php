@@ -28,7 +28,8 @@ final class MvcBuilder {
 	 */
 	public function configure(string $configurationFile): self {
 		try {
-			$this->_mvc = Mvc::create(MvcContext::get($configurationFile));
+			$a = MvcContext::get($configurationFile);
+			$this->_mvc = Mvc::create($a);
 		} catch (Exception $e) {
 			$this->_exception = $e;
 		} finally {

@@ -5,24 +5,23 @@ namespace bomi\mvcat\core;
 use bomi\mvcat\exceptions\FileNotFoundException;
 use bomi\mvcat\exceptions\JsonParsingException;
 use Tebru\Gson\Gson;
-use bomi\mvcat\core\data\routing\RouteMap;
+use bomi\mvcat\core\data\routing\Manifest;
 use bomi\mvcat\core\data\routing\ParameterList;
 use bomi\mvcat\core\data\helpers\ParameterListDeserializer;
 use bomi\mvcat\core\data\routing\Route;
 use bomi\mvcat\core\data\helpers\RouteDeserializer;
 
-class RouteMapReader {
+class ManifestReader {
 	
-	private $_configuration;
 
 	private function __construct() { }
 	
-	public static function read(string $configurationFile) : RouteMap  {
-		if (!file_exists($configurationFile)) {
-			throw new FileNotFoundException($configurationFile);
+	public static function read(string $manifestFile) : Manifest  {
+		if (!file_exists($manifestFile)) {
+			throw new FileNotFoundException($manifestFile);
 		}
 		
-		$fileContent = file_get_contents($configurationFile);
+		$fileContent = file_get_contents($manifestFile);
 		
 		json_decode($fileContent);
 		if (json_last_error() !== JSON_ERROR_NONE) {
@@ -34,7 +33,7 @@ class RouteMapReader {
 				->registerType(Route::class, new RouteDeserializer())
 				->build();
 		
-		return $gson->fromJson($fileContent, RouteMap::class);
+		return $gson->fromJson($fileContent, Manifest::class);
 	}
 }
 

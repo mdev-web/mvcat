@@ -1,7 +1,7 @@
 <?php
 namespace bomi\mvcat\core;
 
-use bomi\mvcat\core\data\routing\RouteMap;
+use bomi\mvcat\core\data\routing\Manifest;
 use bomi\mvcat\core\data\context\RequestContext;
 use bomi\mvcat\core\data\context\RouteContext;
 
@@ -17,18 +17,18 @@ class MvcContext {
 		return $this->_routeContext;
 	}
 	
-	private function __construct(RouteMap $routeMap) {
+	private function __construct(Manifest $manifest) {
 		$this->_requestContext = RequestContext::get();
-		$this->_routeContext = RouteContext::create($routeMap, $this->_requestContext);
+		$this->_routeContext = RouteContext::create($manifest, $this->_requestContext);
 	}
 	
 	/**
 	 * 
-	 * @param string $configurationFile
+	 * @param string $manifestFile
 	 * @return self
 	 */
-	public static function get(string $configurationFile) : self {
-		return new self(RouteMapReader::read($configurationFile));
+	public static function get(string $manifestFile) : self {
+		return new self(ManifestReader::read($manifestFile));
 	}
 }
 

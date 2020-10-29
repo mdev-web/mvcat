@@ -1,7 +1,7 @@
 <?php
 namespace bomi\mvcat\core\data\context;
 
-use bomi\mvcat\core\data\routing\RouteMap;
+use bomi\mvcat\core\data\routing\Manifest;
 use bomi\mvcat\core\data\routing\Route;
 use bomi\mvcat\exceptions\MvcException;
 
@@ -32,7 +32,7 @@ class RouteContext {
 		return $this->_viewsDestination;
 	}
 
-	private function __construct(Route $route, RouteMap $routeMap, RequestContext $requestContext) {
+	private function __construct(Route $route, Manifest $routeMap, RequestContext $requestContext) {
 		$this->_requestContext = $requestContext;
 		$this->_controller = $this->_buildController($route, $routeMap->getDestinations());
 		$this->_action = $route->getParameters()->getAction();
@@ -40,7 +40,7 @@ class RouteContext {
 		$this->_viewsDestination = $routeMap->getDestinations()["views"];
 	}
 	
-	public static function create(RouteMap $routeMap, RequestContext $requestContext) {
+	public static function create(Manifest $routeMap, RequestContext $requestContext) {
 		foreach ($routeMap->getRoutes() as $route) {
 			if (in_array($requestContext->getMethod(), $route->getMethods())  && self::_match($requestContext->getUrlParameters(), $route)) {
 				return new self($route, $routeMap, $requestContext);

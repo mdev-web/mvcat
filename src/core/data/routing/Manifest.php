@@ -2,7 +2,7 @@
 namespace bomi\mvcat\core\data\routing;
 use Tebru\Gson\Annotation\SerializedName;
 
-class RouteMap {
+class Manifest {
 	
 	/** @SerializedName("version") */
 	private $_version;

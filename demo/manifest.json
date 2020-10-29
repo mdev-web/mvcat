@@ -49,9 +49,20 @@
 		},{
 			"path": "users",
 			"methods" : ["POST"],
-			"parameters": {
+			"parameters" : {
 				"controller" : "User",
-				"action": "create"
+				"action" : "create"
+			}
+		}
+	],
+	"templates" : [
+		{
+			"name" : "main",
+			"url" : "public/templates/main.phtml",
+			"properties" :  {
+				"title" : "DEMO",
+				"header" : "Demo header",
+				"baseUrl" : "/mvcat/demo/"
 			}
 		}
 	]
