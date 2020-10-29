@@ -2,9 +2,9 @@
 namespace bomi\mvcat\service;
 
 use bomi\mvcat\base\Controller;
-use bomi\mvcat\core\data\context\RequestContext;
 use bomi\mvcat\exceptions\MvcException;
-use bomi\mvcat\core\MvcContext;
+use bomi\mvcat\context\MvcContext;
+use bomi\mvcat\context\RequestContext;
 
 class Mvc {
 	protected string $_controller;

@@ -1,8 +1,8 @@
 <?php
 namespace bomi\mvcat\manifest\entities;
 use Tebru\Gson\Annotation\SerializedName;
-use bomi\mvcat\core\data\context\RequestContext;
 use Tebru\Gson\Context\ReaderContext;
+use bomi\mvcat\context\RequestContext;
 
 class Route {
 	

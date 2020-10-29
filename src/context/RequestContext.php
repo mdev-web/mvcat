@@ -1,5 +1,5 @@
 <?php
-namespace bomi\mvcat\core\data\context;
+namespace bomi\mvcat\context;
 
 class RequestContext {
 	public const GET = "GET";

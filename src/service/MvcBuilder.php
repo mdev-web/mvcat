@@ -3,7 +3,7 @@ namespace bomi\mvcat\service;
 
 use Exception;
 use bomi\mvcat\base\Template;
-use bomi\mvcat\core\MvcContext;
+use bomi\mvcat\context\MvcContext;
 
 final class MvcBuilder {	
 	private Mvc $_mvc;

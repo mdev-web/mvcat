@@ -1,8 +1,6 @@
 <?php
-namespace bomi\mvcat\core;
+namespace bomi\mvcat\context;
 
-use bomi\mvcat\core\data\context\RequestContext;
-use bomi\mvcat\core\data\context\RouteContext;
 use bomi\mvcat\manifest\ManifestReader;
 use bomi\mvcat\manifest\entities\Manifest;
 

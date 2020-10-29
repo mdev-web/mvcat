@@ -1,5 +1,5 @@
 <?php
-namespace bomi\mvcat\core\data\context;
+namespace bomi\mvcat\context;
 
 use bomi\mvcat\exceptions\MvcException;
 use bomi\mvcat\manifest\entities\Manifest;
