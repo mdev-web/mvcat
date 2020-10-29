@@ -2,7 +2,7 @@
 namespace bomi\mvcat\context;
 
 use bomi\mvcat\manifest\ManifestReader;
-use bomi\mvcat\manifest\entities\Manifest;
+use bomi\mvcat\manifest\Manifest;
 
 class MvcContext {
 

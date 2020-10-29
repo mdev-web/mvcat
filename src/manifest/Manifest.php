@@ -1,6 +1,7 @@
 <?php
-namespace bomi\mvcat\manifest\entities;
+namespace bomi\mvcat\manifest;
 use Tebru\Gson\Annotation\SerializedName;
+use bomi\mvcat\manifest\entities\Route;
 
 class Manifest {
 	

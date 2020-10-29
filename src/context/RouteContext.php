@@ -2,7 +2,7 @@
 namespace bomi\mvcat\context;
 
 use bomi\mvcat\exceptions\MvcException;
-use bomi\mvcat\manifest\entities\Manifest;
+use bomi\mvcat\manifest\Manifest;
 use bomi\mvcat\manifest\entities\Route;
 
 class RouteContext {

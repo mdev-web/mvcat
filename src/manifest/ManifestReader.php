@@ -1,5 +1,4 @@
 <?php
-
 namespace bomi\mvcat\manifest;
 
 use bomi\mvcat\exceptions\FileNotFoundException;
@@ -8,7 +7,6 @@ use Tebru\Gson\Gson;
 use bomi\mvcat\manifest\helpers\ParameterListDeserializer;
 use bomi\mvcat\manifest\helpers\RouteDeserializer;
 use bomi\mvcat\manifest\entities\ParameterList;
-use bomi\mvcat\manifest\entities\Manifest;
 use bomi\mvcat\manifest\entities\Route;
 
 class ManifestReader {
