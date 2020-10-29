@@ -1,5 +1,5 @@
 <?php
-namespace bomi\mvcat;
+namespace bomi\mvcat\service;
 
 use bomi\mvcat\base\Controller;
 use bomi\mvcat\core\data\context\RequestContext;

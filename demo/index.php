@@ -1,7 +1,7 @@
 <?php 
 session_start();
 use bomi\mvcat\base\Template;
-use bomi\mvcat\MvcBuilder;
+use bomi\mvcat\service\MvcBuilder;
 require_once '../libs/vendor/autoload.php';
 
 MvcBuilder::build() 

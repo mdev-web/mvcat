@@ -1,6 +1,6 @@
 <?php
 
-namespace bomi\mvcat\core\data\helpers;
+namespace bomi\mvcat\core\manifest\helpers;
 
 use Tebru\Gson\JsonDeserializer;
 use Tebru\PhpType\TypeToken;

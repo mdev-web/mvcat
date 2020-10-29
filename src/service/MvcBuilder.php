@@ -1,5 +1,5 @@
 <?php
-namespace bomi\mvcat;
+namespace bomi\mvcat\service;
 
 use Exception;
 use bomi\mvcat\base\Template;
