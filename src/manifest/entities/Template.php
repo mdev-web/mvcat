@@ -25,7 +25,7 @@ class Template {
 	}
 	
 	public function __construct() {
-		$this->_variables = array ();
+		$this->_variables = array();
 	}
 	
 	/**
@@ -35,7 +35,7 @@ class Template {
 	 * @param string $value the value
 	 */
 	public function addVariable(string $name, string $value): void {
-		$this->_values["\${" . $name . "}"] = $value;
+		$this->_variables["\${" . $name . "}"] = $value;
 	}
 	
 	public function __set($name, $value) {
@@ -52,7 +52,6 @@ class Template {
 				}				
 				break;
 			default:
-				$this->_parameters = $value;
 				break;
 		}
 	}
