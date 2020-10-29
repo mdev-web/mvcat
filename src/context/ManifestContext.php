@@ -47,10 +47,10 @@ class ManifestContext {
 		$this->_setTemplates($manifest->getTemplates());
 	}
 	
-	public static function create(Manifest $routeMap, RequestContext $requestContext) {
-		foreach ($routeMap->getRoutes() as $route) {
+	public static function create(Manifest $manifest, RequestContext $requestContext) {
+		foreach ($manifest->getRoutes() as $route) {
 			if (in_array($requestContext->getMethod(), $route->getMethods())  && self::_match($requestContext->getUrlParameters(), $route)) {
-				return new self($route, $routeMap, $requestContext);
+				return new self($route, $manifest, $requestContext);
 			}
 		}
 	 	throw new MvcException("Requested url '{$requestContext->getUrlParameters()}' is not part of routing.", 404);
