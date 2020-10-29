@@ -14,7 +14,7 @@
 			<td><?= $user->getFirstname(); ?></td>
 			<td><?= $user->getLastname(); ?></td>
 			<td><?= $user->isActive() ? "yes" : "no"; ?></td>
-			<td><a href="${baseUrl}users/<?= $user->getId();?>">show</a></td>
+			<td><a href="users/<?= $user->getId();?>">show</a></td>
 		</tr>
 		<?php } ?>
 	</table>

@@ -61,8 +61,7 @@
 			"path" : "public/templates/main.phtml",
 			"variables" :  {
 				"title" : "DEMO",
-				"header" : "Demo header",
-				"baseUrl" : "/mvcat/demo/"
+				"header" : "Demo header"
 			}
 		}
 	]
