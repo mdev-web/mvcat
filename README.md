@@ -1,3 +1,3 @@
 # MVC@PHP
 
-[![License](https://poser.pugx.org/devvboehm/mvcat/license.svg)]
+[![coverage](https://coveralls.io/repos/github/devmboehm/mvcat/badge.svg?branch=master)](https://coveralls.io/github/devmboehm/mvcat?branch=master)
