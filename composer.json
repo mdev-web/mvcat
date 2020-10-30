@@ -32,5 +32,8 @@
 		"configuration",
 		"model view controller",
 		"template"
-	]
+	],
+	"require-dev" : {
+		"phpunit/phpunit" : "^9"
+	}
 }
