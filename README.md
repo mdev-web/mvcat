@@ -1,4 +1,3 @@
 # MVC@PHP
 
-[](https://img.shields.io/coveralls/github/devmboehm/mvcat)
-
+[![License](https://poser.pugx.org/devvboehm/mvcat/license.svg)]
