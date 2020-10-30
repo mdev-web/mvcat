@@ -1,1 +1,0 @@
-hallo <?= $value; ?> ${variable}

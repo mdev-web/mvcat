@@ -10,8 +10,11 @@ class View {
 
 	public function __construct() {}
 	
-	public function template(string $view, array $data = array(), Template $template = null) {
-		$template->addVariable(self::VIEW_RENDER, $this->view($view, $data, $template->getVariables()));
+	public function template(string $viewPath, array $data = array(), Template $template = null) {
+		if ($template === null) {
+			return $this->view($viewPath, $data);
+		}
+		$template->addVariable(self::VIEW_RENDER, $this->view($viewPath, $data, $template->getVariables()));
 		return $this->_render($template->getPath(), $data, $template->getVariables());
 	}
 	
@@ -33,9 +36,9 @@ class View {
 	private function _render(string $view, array $data, array $values) {
 		extract($data);
 		ob_start();
-		require_once $view;
+		require $view;
 		$buffer = ob_get_contents();
-		ob_end_clean();
+		ob_get_clean();
 		return strtr($buffer, $values);
 	}
 }
