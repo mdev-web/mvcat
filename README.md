@@ -1,4 +1,3 @@
 # MVC@PHP
 
-![license](https://img.shields.io/badge/license-MIT-brightGreen.svg)
-https://badgen.net/badge/github/release/devmboehm/mvcat?icon=github
+[![License](https://img.shields.io/github/license/devmboehm/mvcat.svg)](https://github.com/devmboehm/mvcat)
