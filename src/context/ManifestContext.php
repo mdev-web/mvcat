@@ -5,6 +5,7 @@ use bomi\mvcat\exceptions\MvcException;
 use bomi\mvcat\manifest\Manifest;
 use bomi\mvcat\manifest\entities\Route;
 use bomi\mvcat\manifest\entities\Template;
+use bomi\mvcat\manifest\entities\Data;
 
 class ManifestContext {
 	
@@ -37,6 +38,11 @@ class ManifestContext {
 	public function getTemplates(): array {
 		return $this->_templates;
 	}
+	
+	private array $_repositories = [];
+	public function getRepositories(): array {
+		return $this->_repositories;
+	}
 
 	private function __construct(Route $route, Manifest $manifest, RequestContext $requestContext) {
 		$this->_requestContext = $requestContext;
@@ -45,6 +51,7 @@ class ManifestContext {
 		$this->_parameters = $route->getParameters()->getParameters();
 		$this->_viewsDestination = $manifest->getDestinations()["views"];
 		$this->_setTemplates($manifest->getTemplates());
+		$this->_setRepositories($manifest->getData());
 	}
 	
 	public static function create(Manifest $manifest, RequestContext $requestContext) {
@@ -86,6 +93,19 @@ class ManifestContext {
 			$this->_templates[$template->getName()] = $template;
 		}
 		
+	}
+	
+	/**
+	 * 
+	 * @param Data $data
+	 */
+	private function _setRepositories($data) {
+		if ($data->getRepositories() !== null && !empty($data->getRepositories())) {
+			foreach ($data->getRepositories() as $key => $value) {
+				$class = str_replace("/", "\\", $value);
+				$this->_repositories[$key] = new $class($data->getConnection());
+			}
+		}
 	}
 }
 

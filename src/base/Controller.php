@@ -10,6 +10,7 @@ abstract class Controller {
 	
 	private View $_view;
 	private array $_templates;
+	private array $_repositories;
 	private RequestContext $_requestContext;	
 
 	public function __construct() { 
@@ -36,6 +37,12 @@ abstract class Controller {
 		}
 	}
 	
+	protected function getRepository(string $repositoryName) {
+		if (key_exists($repositoryName, $this->_repositories)) {
+			return $this->_repositories[$repositoryName];
+		}
+	}
+	
 	/**
 	 * 
 	 * @param array $params
@@ -49,11 +56,15 @@ abstract class Controller {
 	
 	public abstract function indexAction(array $params);
 	
-	private function setTemplates($templates) {
+	protected function setTemplates($templates) {
 		$this->_templates = $templates;
 	}
 	
-	private function setRequestContext($context) {
+	protected function setRepositories($repositories) {
+		$this->_repositories = $repositories;
+	}
+	
+	protected function setRequestContext($context) {
 		$this->_requestContext = $context;
 	}
 }

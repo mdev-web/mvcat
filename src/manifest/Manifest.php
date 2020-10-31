@@ -3,6 +3,7 @@ namespace bomi\mvcat\manifest;
 use Tebru\Gson\Annotation\SerializedName;
 use bomi\mvcat\manifest\entities\Route;
 use bomi\mvcat\manifest\entities\Template;
+use bomi\mvcat\manifest\entities\Data;
 
 class Manifest {
 	
@@ -34,6 +35,15 @@ class Manifest {
 	private $_templates;
 	public function getTemplates(): array {
 		return $this->_templates;
+	} 
+	
+	/**
+	 * @var Data
+	 * @SerializedName("data")
+	 */
+	private $_data;
+	public function getData(): Data {
+		return $this->_data;
 	} 
 
 	public function __construct() {}

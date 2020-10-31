@@ -2,12 +2,13 @@
 namespace bomi\mvcat\demo\classes\repositories;
 
 use bomi\mvcat\demo\classes\models\User;
+use bomi\mvcat\manifest\entities\DataConnection;
 
 class UserRepository {
 	
 	private $_array = [];
 
-	public function __construct() {
+	public function __construct(DataConnection $dataconnection) {
 		array_push($this->_array, new User(1, "Max", "Mustermann", true));
 		array_push($this->_array, new User(2, "John", "Doe", true));	
 		array_push($this->_array, new User(3, "Jame", "Nock", false));

@@ -7,11 +7,6 @@ use bomi\mvcat\demo\classes\repositories\UserRepository;
 class User extends Controller  {
 	
 	private $_userRepo;
-
-	public function __construct() {
-		parent::__construct();
-		$this->_userRepo = new UserRepository();
-	}
 	
 	/**
 	 * 
@@ -21,6 +16,7 @@ class User extends Controller  {
 	public function beforeAction(array $params): bool {
 		$this->extendTemplate("main", "title", "Title Demo User");
 		$this->extendTemplate("main", "header", "Header Demo User");
+		$this->_userRepo = $this->getRepository("user");
 		return parent::beforeAction($params);
 	}
 	

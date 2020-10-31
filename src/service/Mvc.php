@@ -13,6 +13,7 @@ class Mvc {
 	protected string $_viewsDestination;
 	protected RequestContext $_requestContext;
 	protected array $_templates = array ();
+	protected array $_repositories = array ();
 
 	protected function __construct() {}
 
@@ -23,6 +24,7 @@ class Mvc {
 		$this->_viewsDestination = $context->getManifestContext()->getViewsDestination();
 		$this->_requestContext = $context->getManifestContext()->getRequestContext();
 		$this->_templates = $context->getManifestContext()->getTemplates();
+		$this->_repositories = $context->getManifestContext()->getRepositories();
 	}
 
 	public static function create(MvcContext $context): self {
@@ -38,6 +40,7 @@ class Mvc {
 			$this->addViewDestination($controller, $this->_viewsDestination);
 			$this->addRequestContext($controller, $this->_requestContext);
 			$this->addTemplates($controller, $this->_templates);
+			$this->_addMethod($controller, "setRepositories", $this->_repositories);
 
 			if (method_exists($controller, $this->_action) && $controller->beforeAction($this->_parameters)) {
 				$controller->{$this->_action}($this->_parameters);

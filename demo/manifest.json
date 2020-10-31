@@ -64,5 +64,20 @@
 				"header" : "Demo header"
 			}
 		}
-	]
+	],
+	"data" : {
+		"connection" : {
+			"host" : "",
+			"dbname" : "",
+			"username" : "",
+			"password" : "",
+			"additional" : 
+				{
+					"key" : "value"
+				}
+		},
+		"repositories" : {
+			"user" : "bomi/mvcat/demo/classes/repositories/UserRepository"
+		}		
+	}
 }
