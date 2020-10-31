@@ -4,7 +4,6 @@ namespace bomi\mvcat\base;
 
 use bomi\mvcat\exceptions\MvcException;
 use bomi\mvcat\context\RequestContext;
-use bomi\mvcat\manifest\entities\Template;
 
 abstract class Controller {
 	private static string $_viewPath;
