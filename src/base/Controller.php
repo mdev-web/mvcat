@@ -27,6 +27,11 @@ abstract class Controller {
 		return $this->_view->view(self::$_viewPath . $view, $data);
 	}
 	
+	/**
+	 * 
+	 * Use method to fetch information about request and post data
+	 * @return RequestContext
+	 */
 	protected function getRequestContext() : RequestContext {
 		return $this->_requestContext;
 	}
