@@ -8,23 +8,14 @@ final class Mvcat {
 	private Mvc $_mvc;
 	private $_exception = null;
 
-	public static function build() : self {
-		return new self();
-	}
-
-	/**
-	 *
-	 * @param string $configurationFile
-	 *        	url to configuration file
-	 * @return Mvc instance
-	 */
-	public function configure(string $configurationFile): self {
+	public static function build(string $configurationFile) : self {
 		try {
-			$this->_mvc = Mvc::create(MvcContext::get($configurationFile));
+			$obj = new self();
+			$obj->_mvc = Mvc::create(MvcContext::get($configurationFile));
 		} catch (Exception $e) {
-			$this->_exception = $e;
+			$obj->_exception = $e;
 		} finally {
-			return $this;
+			return $obj;
 		}
 	}
 
