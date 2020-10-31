@@ -4,6 +4,7 @@ namespace bomi\mvcat\base;
 
 use bomi\mvcat\exceptions\MvcException;
 use bomi\mvcat\context\RequestContext;
+use bomi\mvcat\manifest\entities\Template;
 
 abstract class Controller {
 	private static string $_viewPath;
@@ -31,12 +32,24 @@ abstract class Controller {
 		return $this->_requestContext;
 	}
 	
+	/**
+	 * 
+	 * Use this method to extend variables in your template
+	 * @param string $templateName
+	 * @param string $key
+	 * @param string $value
+	 */
 	protected function extendTemplate(string $templateName, string $key, string $value) {
 		if (key_exists($templateName, $this->_templates)) {
 			$this->_templates[$templateName]->addVariable($key, $value);
 		}
 	}
 	
+	/**
+	 * 
+	 * @param string $repositoryName configured in manifest
+	 * @return mixed your repository
+	 */
 	protected function getRepository(string $repositoryName) {
 		if (key_exists($repositoryName, $this->_repositories)) {
 			return $this->_repositories[$repositoryName];
