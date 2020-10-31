@@ -18,6 +18,15 @@ abstract class Controller {
 		$this->_templates = array();
 	}
 	
+	/**
+	 * Use method to render view with or without template
+	 * 
+	 * @param string $view path to your view
+	 * @param array $data data in form php variables
+	 * @param string $template path to your template. (Optional)
+	 * @throws MvcException 
+	 * @return string view
+	 */
 	protected function view(string $view, array $data = array(), string $template = null): string {
 		if ($template !== null && key_exists($template, $this->_templates)) {
 			return $this->_view->template(self::$_viewPath . $view, $data, $this->_templates[$template]);
