@@ -1,9 +1,9 @@
 <?php 
 session_start();
-use bomi\mvcat\service\MvcBuilder;
+use bomi\mvcat\service\Mvcat;
 require_once '../libs/vendor/autoload.php';
 
-MvcBuilder::build() 
+Mvcat::build() 
 	->configure("manifest.json")
 	->execute(function(int $code, Exception $exception = null){
 		if ($code !== 200) {

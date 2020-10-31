@@ -4,7 +4,7 @@ namespace bomi\mvcat\service;
 use Exception;
 use bomi\mvcat\context\MvcContext;
 
-final class MvcBuilder {	
+final class Mvcat {	
 	private Mvc $_mvc;
 	private $_exception = null;
 
@@ -20,8 +20,7 @@ final class MvcBuilder {
 	 */
 	public function configure(string $configurationFile): self {
 		try {
-			$a = MvcContext::get($configurationFile);
-			$this->_mvc = Mvc::create($a);
+			$this->_mvc = Mvc::create(MvcContext::get($configurationFile));
 		} catch (Exception $e) {
 			$this->_exception = $e;
 		} finally {
