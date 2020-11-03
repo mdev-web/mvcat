@@ -10,8 +10,21 @@
 ### Composer
 ```composer require bomi/mvcat```
 
+### Start
+```php
+use bomi\mvcat\service\Mvcat;
+require_once '../libs/vendor/autoload.php';
+
+Mvcat::build("manifest.json") 
+	->execute(function(int $code, Exception $exception = null){
+		if ($code !== 200) {
+			echo $exception->getMessage();
+		}
+	});
+```
+
 ### Configuration file 
-## Manifest.json
+#### Manifest.json
 ```json
 {
 	"version" : "v.1.0.0",
