@@ -7,6 +7,9 @@
 - see: [DEMO](https://github.com/devmboehm/mvcat/tree/master/demo)
 - url: localhost/mvcat/demo
 
+### Composer
+composer require bomi/mvcat
+
 ### Configuration file 
 ## Manifest.json
 ```json
