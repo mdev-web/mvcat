@@ -4,9 +4,7 @@
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/devmboehm/mvcat)
 
 ### Demo 
-see: 
-[[linkdemo]][demo]
-[demo]: https://github.com/devmboehm/mvcat/tree/master/demo "Demo"
+see: [DEMO](https://github.com/devmboehm/mvcat/tree/master/demo)
 url: localhost/mvcat/demo
 
 ### Configuration file
