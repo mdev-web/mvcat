@@ -6,7 +6,7 @@
 		}
 	},
 	"name" : "bomi/mvcat",
-	"description" : "MVC framework using configuration file",
+	"description" : "PHP MVC library using configuration file",
 	"type" : "library",
 	"license" : "MIT",
 	"config" : {
