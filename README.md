@@ -8,7 +8,9 @@
 - url: localhost/mvcat/demo
 
 ### Composer
-```composer require bomi/mvcat```
+```
+composer require bomi/mvcat
+```
 
 ### Start
 ```php
