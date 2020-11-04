@@ -86,7 +86,7 @@ ${viewRender}
 ```php
 echo $this->view("users/form.inc", $params, "main");
 ``` 
-- ignore tepmlate 
+- render view without tepmplate 
 ```php
 echo $this->view("users/form.inc", $params);
 ``` 
