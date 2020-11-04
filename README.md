@@ -80,3 +80,8 @@ Mvcat::build("manifest.json")
 ```
 ${viewRender}
 ```
+
+### Controller
+- your controller must inherit the bomi\mvcat\base\Controller
+- [example](https://github.com/devmboehm/mvcat/blob/master/demo/classes/controllers/User.php)
+
