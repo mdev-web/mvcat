@@ -79,5 +79,6 @@
 		"repositories" : {
 			"user" : "bomi/mvcat/demo/classes/repositories/UserRepository"
 		}		
-	}
+	},
+	"languages" : "public/lang"
 }
