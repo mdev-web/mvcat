@@ -80,6 +80,14 @@ Mvcat::build("manifest.json")
 ```
 ${viewRender}
 ```
+- use template 
+```php
+echo $this->view("users/form.inc", $params, "main");
+``` 
+- ignore tepmlate 
+```php
+echo $this->view("users/form.inc", $params);
+``` 
 
 ### Controller
 - your controller must inherit the bomi\mvcat\base\Controller
