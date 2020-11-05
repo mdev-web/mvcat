@@ -32,8 +32,12 @@ class Mvc {
 		$mvc->setContext($context);
 		return $mvc;
 	}
+	
+	public function setLanguage($lang) {
+		;
+	}
 
-	public function execute($language): void {
+	public function execute(): void {
 		if ($this->isSupportedClass($this->_controller)) {
 			$controller = new $this->_controller();
 
