@@ -45,6 +45,15 @@ class Manifest {
 	public function getData(): Data {
 		return $this->_data;
 	} 
+	
+	/**
+	 * @var array
+	 * @SerializedName("languages")
+	 */
+	private $_languages;
+	public function getLanguages(): array {
+		return $this->_languages;
+	} 
 
 	public function __construct() {}
 }

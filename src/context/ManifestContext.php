@@ -43,6 +43,11 @@ class ManifestContext {
 	public function getRepositories(): array {
 		return $this->_repositories;
 	}
+	
+	private $_languages;
+	public function getLanguages(): array {
+		return $this->_languages;
+	} 
 
 	private function __construct(Route $route, Manifest $manifest, RequestContext $requestContext) {
 		$this->_requestContext = $requestContext;
@@ -52,6 +57,7 @@ class ManifestContext {
 		$this->_viewsDestination = $manifest->getDestinations()["views"];
 		$this->_setTemplates($manifest->getTemplates());
 		$this->_setRepositories($manifest->getData());
+		$this->_languages = $manifest->getLanguages();
 	}
 	
 	public static function create(Manifest $manifest, RequestContext $requestContext) {

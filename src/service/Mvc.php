@@ -33,7 +33,7 @@ class Mvc {
 		return $mvc;
 	}
 
-	public function execute(): void {
+	public function execute($language): void {
 		if ($this->isSupportedClass($this->_controller)) {
 			$controller = new $this->_controller();
 

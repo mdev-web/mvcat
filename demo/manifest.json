@@ -80,5 +80,8 @@
 			"user" : "bomi/mvcat/demo/classes/repositories/UserRepository"
 		}		
 	},
-	"languages" : "public/lang"
+	"languages" : {
+		"de" : "lang-de.ini",
+		"en" : "lang-en.ini"
+	}
 }
