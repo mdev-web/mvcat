@@ -37,6 +37,7 @@ class View {
 		if (!file_exists($viewPath)) {
 			throw new FileNotFoundException($viewPath);	
 		}
+// 		$data["i18n"] = $this->_i18n;
 		return $this->_render($viewPath, $data, $values);
 	}
 
