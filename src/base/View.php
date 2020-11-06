@@ -4,11 +4,18 @@ namespace bomi\mvcat\base;
 
 use bomi\mvcat\manifest\entities\Template;
 use bomi\mvcat\exceptions\FileNotFoundException;
+use bomi\mvcat\i18n\I18N;
 
 class View {
 	public const VIEW_RENDER = "viewRender";
 
+	private I18N $_i18n;
+
 	public function __construct() {}
+	
+	public function setLanguageValues(I18N $i18n) {
+		$this->_i18n = $i18n;
+	}
 	
 	public function template(string $viewPath, array $data = array(), Template $template = null) {
 		if ($template === null) {

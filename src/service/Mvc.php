@@ -5,6 +5,7 @@ use bomi\mvcat\base\Controller;
 use bomi\mvcat\exceptions\MvcException;
 use bomi\mvcat\context\MvcContext;
 use bomi\mvcat\context\RequestContext;
+use bomi\mvcat\i18n\I18N;
 
 class Mvc {
 	protected string $_controller;
@@ -14,6 +15,8 @@ class Mvc {
 	protected RequestContext $_requestContext;
 	protected array $_templates = array ();
 	protected array $_repositories = array ();
+	protected array $_languages = array();
+	protected I18N $_i18N;
 
 	protected function __construct() {}
 
@@ -25,6 +28,7 @@ class Mvc {
 		$this->_requestContext = $context->getManifestContext()->getRequestContext();
 		$this->_templates = $context->getManifestContext()->getTemplates();
 		$this->_repositories = $context->getManifestContext()->getRepositories();
+		$this->_languages = $context->getManifestContext()->getLanguages();
 	}
 
 	public static function create(MvcContext $context): self {
@@ -34,7 +38,10 @@ class Mvc {
 	}
 	
 	public function setLanguage($lang) {
-		;
+		if ($lang === null || empty($this->_languages) || !array_key_exists($lang, $this->_languages)) {
+			$this->_i18N = new I18N(array());
+		}
+		$this->_i18N = new I18N(parse_ini_file($this->_languages[$lang]));
 	}
 
 	public function execute(): void {

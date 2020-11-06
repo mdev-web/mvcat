@@ -4,6 +4,7 @@ namespace bomi\mvcat\base;
 
 use bomi\mvcat\exceptions\MvcException;
 use bomi\mvcat\context\RequestContext;
+use bomi\mvcat\i18n\I18N;
 
 abstract class Controller {
 	private static string $_viewPath;
@@ -92,5 +93,9 @@ abstract class Controller {
 	
 	protected function setRequestContext($context) {
 		$this->_requestContext = $context;
+	}
+	
+	protected function setLanguageValues(I18N $i18n) {
+		$this->_view->setLanguageValues($i18n);
 	}
 }

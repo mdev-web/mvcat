@@ -81,7 +81,7 @@
 		}		
 	},
 	"languages" : {
-		"de" : "lang-de.ini",
-		"en" : "lang-en.ini"
+		"de" : "public/i18n/lang-de.ini",
+		"en" : "public/i18n/lang-en.ini"
 	}
 }
