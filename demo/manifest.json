@@ -58,11 +58,7 @@
 	"templates" : [
 		{
 			"name" : "main",
-			"path" : "public/templates/main.phtml",
-			"variables" :  {
-				"title" : "DEMO",
-				"header" : "Demo header"
-			}
+			"path" : "public/templates/main.phtml"
 		}
 	],
 	"data" : {
@@ -79,5 +75,9 @@
 		"repositories" : {
 			"user" : "bomi/mvcat/demo/classes/repositories/UserRepository"
 		}		
+	},
+	"languages" : {
+		"de" : "public/i18n/lang-de.properties",
+		"ru" : "public/i18n/lang-ru.properties"
 	}
 }

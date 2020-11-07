@@ -1,19 +1,22 @@
+<?php
+use bomi\mvcat\base\View;
+?>
 <!DOCTYPE html>
 <!-- Template by html.am -->
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>${title}</title>
+		<title><?= $i18n->get("main.layout.title", "demo"); ?></title>
 		<base href="/mvcat/demo/">
 		<link rel="stylesheet" href="public/asserts/css/style.css">
 	</head>
 	<body>
 		<header id="header">
-			<p>${header}</p>
+			<p><?= $i18n->get("main.layout.header", "Demo", "home"); ?></p>
 		</header>
 		<div id="container">		
-			<main id="center" class="column">			
-				${viewRender}
+			<main id="center" class="column">		
+				<?= ${View::VIEW_RENDER}; ?>
 			</main>
 			<nav id="left" class="column">
 				<h3>Navigation</h3>

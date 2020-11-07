@@ -7,7 +7,7 @@ use bomi\mvcat\context\MvcContext;
 final class Mvcat {	
 	private Mvc $_mvc;
 	private $_exception = null;
-
+	
 	public static function build(string $configurationFile) : self {
 		try {
 			$obj = new self();
@@ -17,6 +17,11 @@ final class Mvcat {
 		} finally {
 			return $obj;
 		}
+	}
+	
+	public function language($lang = null) {
+		$this->_mvc->setLanguage($lang);
+		return $this;
 	}
 
 	public function execute($callback) {

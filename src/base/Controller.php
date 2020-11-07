@@ -4,6 +4,7 @@ namespace bomi\mvcat\base;
 
 use bomi\mvcat\exceptions\MvcException;
 use bomi\mvcat\context\RequestContext;
+use bomi\mvcat\i18n\I18N;
 
 abstract class Controller {
 	private static string $_viewPath;
@@ -47,19 +48,6 @@ abstract class Controller {
 	
 	/**
 	 * 
-	 * Use this method to extend variables in your template
-	 * @param string $templateName
-	 * @param string $key
-	 * @param string $value
-	 */
-	protected function extendTemplate(string $templateName, string $key, string $value) {
-		if (key_exists($templateName, $this->_templates)) {
-			$this->_templates[$templateName]->addVariable($key, $value);
-		}
-	}
-	
-	/**
-	 * 
 	 * @param string $repositoryName configured in manifest
 	 * @return mixed your repository
 	 */
@@ -92,5 +80,9 @@ abstract class Controller {
 	
 	protected function setRequestContext($context) {
 		$this->_requestContext = $context;
+	}
+	
+	protected function setI18N(I18N $i18n) {
+		$this->_view->setI18N($i18n);
 	}
 }

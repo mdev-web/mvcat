@@ -14,12 +14,9 @@ class User extends Controller  {
 	 * @see \bomi\mvcat\base\Controller::beforeAction()
 	 */
 	public function beforeAction(array $params): bool {
-		$this->extendTemplate("main", "title", "Title Demo User");
-		$this->extendTemplate("main", "header", "Header Demo User");
 		$this->_userRepo = $this->getRepository("user");
 		return parent::beforeAction($params);
 	}
-	
 	
 	public function apiAction(array $params) {
 		$params["users"] = $this->_userRepo->getAll();
