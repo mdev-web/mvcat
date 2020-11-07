@@ -18,10 +18,11 @@ class View {
 	}
 	
 	public function template(string $viewPath, array $data = array(), Template $template = null) {
+		$view = $this->view($viewPath, $data);
 		if ($template === null) {
-			return $this->view($viewPath, $data);
+			return $view;
 		}
-		$data[self::VIEW_RENDER] = $this->view($viewPath, $data);
+		$data[self::VIEW_RENDER] = $view;
 		return $this->_render($template->getPath(), $data);
 	}
 	
