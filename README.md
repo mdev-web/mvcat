@@ -83,7 +83,7 @@ Mvcat::build("manifest.json")
 ### Call view in template
 - see: [main.phtml](https://github.com/devmboehm/mvcat/blob/master/demo/public/templates/main.phtml)
 ```
-${viewRender}
+${View::VIEW_RENDER};
 ```
 - use template 
 ```php
@@ -98,3 +98,7 @@ echo $this->view("users/form.inc", $params);
 - your controller must inherit the bomi\mvcat\base\Controller
 - [example](https://github.com/devmboehm/mvcat/blob/master/demo/classes/controllers/User.php)
 
+### Language
+1. define your languages in *.properties file [example](https://github.com/devmboehm/mvcat/tree/master/demo/public/i18n)
+2. add paths to manifest.json
+3. call <?= $i18n->get("your.key.value", $attrs); ?>
