@@ -17,7 +17,10 @@ composer require bomi/mvcat
 use bomi\mvcat\service\Mvcat;
 require_once '../libs/vendor/autoload.php';
 
+$language = "de"; // or your implementation to find a language
+
 Mvcat::build("manifest.json") 
+	->language($language)
 	->execute(function(int $code, Exception $exception = null){
 		if ($code !== 200) {
 			echo $exception->getMessage();
@@ -48,16 +51,12 @@ Mvcat::build("manifest.json")
 				"controller" : "User",
 				"action": "user"
 			}
-		}, ...
+		}
 	],
 	"templates" : [
 		{
 			"name" : "main",
-			"path" : "public/templates/main.phtml",
-			"variables" :  {
-				"title" : "DEMO",
-				"header" : "Demo header"
-			}
+			"path" : "public/templates/main.phtml"
 		}
 	],
 	"data" : {
@@ -74,6 +73,10 @@ Mvcat::build("manifest.json")
 		"repositories" : {
 			"user" : "bomi/mvcat/demo/classes/repositories/UserRepository"
 		}		
+	},
+	"languages" : {
+		"de" : "public/i18n/lang-de.properties",
+		"ru" : "public/i18n/lang-ru.properties"
 	}
 }
 ```
