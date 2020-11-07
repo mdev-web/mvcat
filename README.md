@@ -98,7 +98,7 @@ echo $this->view("users/form.inc", $params);
 - your controller must inherit the bomi\mvcat\base\Controller
 - [example](https://github.com/devmboehm/mvcat/blob/master/demo/classes/controllers/User.php)
 
-### Language
+### Languages
 1. define your languages in *.properties file. [example](https://github.com/devmboehm/mvcat/tree/master/demo/public/i18n)
 2. add paths to manifest.json
 3. call method to translate: $i18n->get("your.key.value", $attrs);
