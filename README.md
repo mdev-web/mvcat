@@ -1,8 +1,10 @@
---------------
-## MVC@PHP
 
 [![GitHub issues](https://img.shields.io/github/issues/devmboehm/mvcat)](https://github.com/devmboehm/mvcat/issues)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/devmboehm/mvcat)
+
+--------------
+## MVC@PHP
+library 
 
 ### Demo 
 - see: [DEMO](https://github.com/devmboehm/mvcat/tree/master/demo)
@@ -13,7 +15,7 @@
 composer require bomi/mvcat
 ```
 
-### Start
+### Using
 ```php
 use bomi\mvcat\service\Mvcat;
 require_once '../libs/vendor/autoload.php';
@@ -28,6 +30,9 @@ Mvcat::build("manifest.json")
 		}
 	});
 ```
+
+#### .htaccess
+- [see](https://github.com/devmboehm/mvcat/blob/master/demo/.htaccess)
 
 ### Configuration file 
 #### Manifest.json
