@@ -1,5 +1,5 @@
 <article>
-	<h1>Users</h1>
+	<h1><?= $i18n->get("main.layout.add.users.title"); ?></h1>
 	<h3>Form</h3>
 
 	<form action="users"method="post">
