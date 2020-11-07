@@ -23,7 +23,10 @@ class I18N {
 		return $string;
 	}
 
-	private function _parse($content): array {
+	private function _parse($content): array {		
+		$content = preg_replace("/\/\*[\s\S]*?\*\/|([^:]|^)\/\/.*$/im", "", $content);
+		$content = preg_replace('/^\h*\v+/m', '',$content);
+		
 		$values = array();
 		if (preg_match_all('/([a-zA-Z0-9\-_\.]*)=([^\r\n]*)/u', $content, $matches, PREG_SET_ORDER)) {
 			foreach ($matches as $gr) {
