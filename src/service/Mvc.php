@@ -52,6 +52,7 @@ class Mvc {
 			$this->addRequestContext($controller, $this->_requestContext);
 			$this->addTemplates($controller, $this->_templates);
 			$this->_addMethod($controller, "setRepositories", $this->_repositories);
+			$this->_addMethod($controller, "setI18N", $this->_i18N);
 
 			if (method_exists($controller, $this->_action) && $controller->beforeAction($this->_parameters)) {
 				$controller->{$this->_action}($this->_parameters);

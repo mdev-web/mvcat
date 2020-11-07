@@ -13,7 +13,7 @@ class View {
 
 	public function __construct() {}
 	
-	public function setLanguageValues(I18N $i18n) {
+	public function setI18N(I18N $i18n) {
 		$this->_i18n = $i18n;
 	}
 	
@@ -21,8 +21,8 @@ class View {
 		if ($template === null) {
 			return $this->view($viewPath, $data);
 		}
-		$template->addVariable(self::VIEW_RENDER, $this->view($viewPath, $data, $template->getVariables()));
-		return $this->_render($template->getPath(), $data, $template->getVariables());
+		$data[self::VIEW_RENDER] = $this->view($viewPath, $data);
+		return $this->_render($template->getPath(), $data);
 	}
 	
 	/**
@@ -33,21 +33,21 @@ class View {
 	 * @throws FileNotFoundException if file not found
 	 * @return string view output
 	 */
-	public function view(string $viewPath, array $data, array $values = array()) {
+	public function view(string $viewPath, array $data) {
 		if (!file_exists($viewPath)) {
 			throw new FileNotFoundException($viewPath);	
 		}
-// 		$data["i18n"] = $this->_i18n;
-		return $this->_render($viewPath, $data, $values);
+		return $this->_render($viewPath, $data);
 	}
 
-	private function _render(string $view, array $data, array $values) {
+	private function _render(string $view, array $data) {
+		$data["i18n"] = $this->_i18n;
 		extract($data);
 		ob_start();
 		require $view;
 		$buffer = ob_get_contents();
 		ob_get_clean();
-		return strtr($buffer, $values);
+		return $buffer;
 	}
 }
 

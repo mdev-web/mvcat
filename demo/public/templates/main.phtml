@@ -3,18 +3,17 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>${title}</title>
+		<title><?= $i18n->get("main.layout.title"); ?></title>
 		<base href="/mvcat/demo/">
 		<link rel="stylesheet" href="public/asserts/css/style.css">
 	</head>
 	<body>
 		<header id="header">
-			<p>${header}</p>
+			<p><?= $i18n->get("main.layout.header"); ?></p>
 		</header>
 		<div id="container">		
 			<main id="center" class="column">		
-	
-				${viewRender}
+				<?= $viewRender ?>
 			</main>
 			<nav id="left" class="column">
 				<h3>Navigation</h3>

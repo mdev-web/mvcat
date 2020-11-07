@@ -58,11 +58,7 @@
 	"templates" : [
 		{
 			"name" : "main",
-			"path" : "public/templates/main.phtml",
-			"variables" :  {
-				"title" : "DEMO",
-				"header" : "Demo header"
-			}
+			"path" : "public/templates/main.phtml"
 		}
 	],
 	"data" : {

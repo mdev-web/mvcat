@@ -30,7 +30,6 @@ class ManifestReader {
 		$gson = Gson::builder()
 			->registerType(ParameterList::class, new ParameterListDeserializer())
 			->registerType(Route::class, new RouteDeserializer())
-			->registerType(Template::class, new TemplateDeserializer())
 			->build();
 
 		return $gson->fromJson($fileContent, Manifest::class);

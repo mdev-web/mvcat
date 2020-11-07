@@ -7,7 +7,6 @@ class I18N {
 
 	public function __construct(string $path = null) {
 		$this->_values = $path === null ? array () : $this->_parse(file_get_contents($path));
-		$this->get("my.demo.value", "one", "two", "three");
 	}
 	
 	public function get($key, $agrs = null) {
@@ -21,7 +20,7 @@ class I18N {
 				$string = str_replace("{" . $key . "}", $value, $string);
 			}
 		}
-		$this->_values[$key] = $string;
+		return $string;
 	}
 
 	private function _parse($content): array {
