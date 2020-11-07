@@ -1,3 +1,6 @@
+<?php
+use bomi\mvcat\base\View;
+?>
 <!DOCTYPE html>
 <!-- Template by html.am -->
 <html>
@@ -13,7 +16,7 @@
 		</header>
 		<div id="container">		
 			<main id="center" class="column">		
-				<?= $viewRender ?>
+				<?= ${View::VIEW_RENDER}; ?>
 			</main>
 			<nav id="left" class="column">
 				<h3>Navigation</h3>

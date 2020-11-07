@@ -78,6 +78,6 @@
 	},
 	"languages" : {
 		"de" : "public/i18n/lang-de.properties",
-		"en" : "public/i18n/lang-en.ini"
+		"ru" : "public/i18n/lang-ru.properties"
 	}
 }
