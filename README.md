@@ -103,6 +103,11 @@ echo $this->view("users/form.inc", $params);
 ### Controller
 - your controller should inherit the bomi\mvcat\base\Controller
 - [example](https://github.com/devmboehm/mvcat/blob/master/demo/classes/controllers/User.php)
+- fetch get or post data 
+```php
+$this->getRequestContext()->getPostData;
+$this->getRequestContext()->getGetData;
+``` 
 
 ### Languages
 1. define your languages in *.properties file. [example](https://github.com/devmboehm/mvcat/tree/master/demo/public/i18n)
