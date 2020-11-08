@@ -5,7 +5,7 @@ use Exception;
 use bomi\mvcat\context\MvcContext;
 
 final class Mvcat {	
-	private Mvc $_mvc;
+	private ?Mvc $_mvc = null;
 	private $_exception = null;
 	
 	public static function build(string $configurationFile) : self {
@@ -20,7 +20,9 @@ final class Mvcat {
 	}
 	
 	public function language($lang = null) {
-		$this->_mvc->setLanguage($lang);
+		if ($this->_mvc != null) {
+			$this->_mvc->setLanguage($lang);
+		}
 		return $this;
 	}
 
