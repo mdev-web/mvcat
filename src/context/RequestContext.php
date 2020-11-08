@@ -23,6 +23,11 @@ class RequestContext {
 		return $this->_postData;
 	}
 	
+	private array $_getData = array();
+	public function getGetData() {
+		$this->_getData;
+	}
+	
 	private function __construct() {
 		$this->_method = $_SERVER["REQUEST_METHOD"];
 		$this->_urlParameters = filter_input(INPUT_GET, "url", FILTER_SANITIZE_STRING|FILTER_SANITIZE_SPECIAL_CHARS);
@@ -32,7 +37,14 @@ class RequestContext {
 				$this->_postData[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
 			}
 		}
-		var_dump($this->_postData);
+		
+		if (!empty($_GET)) {
+			foreach ($_GET as $key => $value) {
+				if ($key !== "url") {
+					$this->_getData[$key] = filter_input(INPUT_GET, $key, FILTER_SANITIZE_SPECIAL_CHARS);
+				}
+			}
+		}
 	}
 	
 	public static function get() : self {
