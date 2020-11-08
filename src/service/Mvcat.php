@@ -3,6 +3,7 @@ namespace bomi\mvcat\service;
 
 use Exception;
 use bomi\mvcat\context\MvcContext;
+use bomi\mvcat\exceptions\MvcException;
 
 final class Mvcat {	
 	private ?Mvc $_mvc = null;
@@ -36,10 +37,14 @@ final class Mvcat {
 
 	private function _execute($callback) {
 		try {
-			$this->_mvc->execute();
-			return $callback(200);
+			if ($this->_mvc != null) { 				
+				$this->_mvc->execute();
+				return $callback(200);
+			} else {
+				return $callback(500, new MvcException("An unknown error has occurred"));
+			}
 		} catch (Exception $e) {
-			return $callback(500, $e);
+			return $callback($e->getCode(), $e);
 		}
 	}
 }
