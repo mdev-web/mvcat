@@ -88,7 +88,7 @@ Mvcat::build("manifest.json")
 ```
 ### Call view in template
 - see: [main.phtml](https://github.com/devmboehm/mvcat/blob/master/demo/public/templates/main.phtml)
-```hp
+```php
 echo ${View::VIEW_RENDER};
 ```
 - use template 
