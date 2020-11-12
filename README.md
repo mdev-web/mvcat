@@ -33,6 +33,10 @@ Mvcat::build("manifest.json")
 
 #### .htaccess
 - [see](https://github.com/devmboehm/mvcat/blob/master/demo/.htaccess)
+- change line to your base url 
+```
+RewriteBase /mvcat/demo/
+```
 
 ### Configuration file 
 #### Manifest.json
