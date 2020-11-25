@@ -23,7 +23,7 @@
 		}
 	],
 	"require" : {
-		"php" : ">=7.4",
+		"php" : "<=7.2",
 		"tebru/gson-php" : "^0.7"
 	},
 	"keywords" : [
