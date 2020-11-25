@@ -6,12 +6,12 @@ use bomi\mvcat\manifest\Manifest;
 
 class MvcContext {
 
-	private RequestContext $_requestContext;
+	private $_requestContext;
 	public function getRequestContext() : RequestContext {
 		return $this->_requestContext;
 	}
 	
-	private ManifestContext $_manifestContext;
+	private $_manifestContext;
 	public function getManifestContext() : ManifestContext {
 		return $this->_manifestContext;
 	}

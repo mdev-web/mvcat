@@ -9,7 +9,7 @@ use bomi\mvcat\i18n\I18N;
 class View {
 	public const VIEW_RENDER = "viewRender";
 
-	private I18N $_i18n;
+	private $_i18n;
 
 	public function __construct() {}
 	

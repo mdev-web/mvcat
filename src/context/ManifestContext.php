@@ -9,37 +9,37 @@ use bomi\mvcat\manifest\entities\Data;
 
 class ManifestContext {
 	
-	private string $_controller;
+	private $_controller;
 	public function getController() : string {
 		return $this->_controller;
 	}
 	
-	private string $_action;
+	private $_action;
 	public function getAction() : string {
 		return $this->_action;
 	}
 	
-	private array $_parameters;
+	private $_parameters;
 	public function getParameters() : array {
 		return $this->_parameters;
 	}
 	
-	private RequestContext $_requestContext;
+	private $_requestContext;
 	public function getRequestContext() : RequestContext {
 		return $this->_requestContext;
 	}
 	
-	private string $_viewsDestination;
+	private $_viewsDestination;
 	public function getViewsDestination() : string {
 		return $this->_viewsDestination;
 	}
 	
-	private array $_templates = [];
+	private $_templates = [];
 	public function getTemplates(): array {
 		return $this->_templates;
 	}
 	
-	private array $_repositories = [];
+	private $_repositories = [];
 	public function getRepositories(): array {
 		return $this->_repositories;
 	}

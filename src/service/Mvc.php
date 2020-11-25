@@ -8,15 +8,15 @@ use bomi\mvcat\context\RequestContext;
 use bomi\mvcat\i18n\I18N;
 
 class Mvc {
-	protected string $_controller;
-	protected string $_action;
-	protected array $_parameters = array ();
-	protected string $_viewsDestination;
-	protected RequestContext $_requestContext;
-	protected array $_templates = array ();
-	protected array $_repositories = array ();
-	protected array $_languages = array();
-	protected I18N $_i18N;
+	protected $_controller;
+	protected $_action;
+	protected $_parameters = array ();
+	protected $_viewsDestination;
+	protected $_requestContext;
+	protected $_templates = array ();
+	protected $_repositories = array ();
+	protected $_languages = array();
+	protected $_i18N;
 
 	protected function __construct() {}
 

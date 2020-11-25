@@ -12,7 +12,7 @@ class ViewTest extends TestCase {
 	private const DATA = array("value" => "my value");
 	public  const TPL_VARS = array("\${variable}" => "my template variable");
 	
-	private View $_view;
+	private $_view;
 	
 	public function setUp(): void {
 		$this->_view = new View();

@@ -6,7 +6,7 @@ use bomi\mvcat\context\MvcContext;
 use bomi\mvcat\exceptions\MvcException;
 
 final class Mvcat {	
-	private ?Mvc $_mvc = null;
+	private $_mvc = null;
 	private $_exception = null;
 	
 	public static function build(string $configurationFile) : self {

@@ -7,12 +7,12 @@ use bomi\mvcat\context\RequestContext;
 use bomi\mvcat\i18n\I18N;
 
 abstract class Controller {
-	private static string $_viewPath;
+	private static $_viewPath;
 	
-	private View $_view;
-	private array $_templates;
-	private array $_repositories;
-	private RequestContext $_requestContext;	
+	private $_view;
+	private $_templates;
+	private $_repositories;
+	private $_requestContext;	
 
 	public function __construct() { 
 		$this->_view = new View();

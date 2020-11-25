@@ -18,12 +18,12 @@ class RequestContext {
 		return isset($this->_urlParameters) ? $this->_urlParameters : '/';
 	}
 	
-	private array $_postData;
+	private $_postData;
 	public function getPostData() {
 		return $this->_postData;
 	}
 	
-	private array $_getData = array();
+	private $_getData = array();
 	public function getGetData() {
 		$this->_getData;
 	}

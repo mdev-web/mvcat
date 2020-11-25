@@ -10,7 +10,7 @@ class Route {
 	 * @var string
 	 * @SerializedName("path") 
 	 */
-	private string $_path;
+	private $_path;
 	public function getPath() : string {
 		return $this->_path;
 	}
@@ -19,7 +19,7 @@ class Route {
 	 * @var string[]
 	 * @SerializedName("methods")
 	 */
-	private array $_methods;
+	private $_methods;
 	public function getMethods() {
 		return $this->_methods;
 	}
@@ -28,7 +28,7 @@ class Route {
 	 * @var ParameterList
 	 * @SerializedName("parameters") 
 	 */
-	private ParameterList $_parameters;
+	private $_parameters;
 	public function getParameters() : ParameterList {
 		return $this->_parameters;
 	}

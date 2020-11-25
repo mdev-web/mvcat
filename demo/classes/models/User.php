@@ -6,10 +6,10 @@ use JsonSerializable;
 
 class User implements JsonSerializable {
 
-	private int $_id;
-	private string $_firstname;
-	private string $_lastname;
-	private bool $_isActiv;
+	private $_id;
+	private $_firstname;
+	private $_lastname;
+	private $_isActiv;
 	
 	public function getId() {
 		return $this->_id;

@@ -3,7 +3,7 @@
 namespace bomi\mvcat\i18n;
 
 class I18N {
-	private array $_values;
+	private $_values;
 
 	public function __construct(string $path = null) {
 		$this->_values = $path === null ? array () : $this->_parse(file_get_contents($path));
