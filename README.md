@@ -117,4 +117,6 @@ $this->getRequestContext()->getGetData;  // get data
 ### Languages
 1. define your languages in *.properties file. [example](https://github.com/devmboehm/mvcat/tree/master/demo/public/i18n)
 2. add paths to manifest.json
-3. call method to translate: $i18n->get("your.key.value", $attrs);
+3. use in template or view: 
+3.1. Without arguments ${key}
+3.2. With arguments ${key>>arg1,arg2,arg3}
