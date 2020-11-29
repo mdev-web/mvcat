@@ -8,6 +8,7 @@ use bomi\mvcat\i18n\I18N;
 
 class View {
 	public const VIEW_RENDER = "viewRender";
+	private const SEPARATOR = ">>";
 
 	private $_i18n;
 
@@ -41,7 +42,7 @@ class View {
 		return $this->_render($viewPath, $data);
 	}
 	
-	public function i18n(string $content) {		
+	public function translate(string $content) {		
 		preg_match_all('/\${(.*?)}/u', $content, $match);
 		foreach ($match[1] as $m){
 			$content = str_replace('${' . $m . '}', $this->_getValue($m), $content);
@@ -50,7 +51,6 @@ class View {
 	}
 
 	private function _render(string $view, array $data) {
-		$data["i18n"] = $this->_i18n;
 		extract($data);
 		ob_start();
 		require $view;
@@ -60,11 +60,11 @@ class View {
 	}
 	
 	private function _getValue($key) {
-		if (strpos($key, ">>")) {
-			$array = explode(">>", $key);
-			return $this->_i18n->get1($array[0], explode(",", $array[1]));
+		if (strpos($key, self::SEPARATOR)) {
+			$array = explode(self::SEPARATOR, $key);
+			return $this->_i18n->get($array[0], explode(",", $array[1]));
 		}				
-		return $this->_i18n->get1($key);
+		return $this->_i18n->get($key);
 	}
 }
 

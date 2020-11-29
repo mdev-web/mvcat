@@ -8,29 +8,15 @@ class I18N {
 	public function __construct(string $path = null) {
 		$this->_values = $path === null ? array () : $this->_parse(file_get_contents($path));
 	}
-	
-	public function get($key, $agrs = null) {
-		if (!key_exists($key, $this->_values)) {
-			return $key;
-		}
-				
-		$string = $this->_values[$key];
-		foreach (func_get_args() as $key => $value) {
-			if ($key > 0) {
-				$string = str_replace("{" . $key . "}", $value, $string);
-			}
-		}
-		return $string;
-	}
-	
-	public function get1($key, $args = []) {
+		
+	public function get($key, $args = []) {
 		if (!key_exists($key, $this->_values)) {
 			return $key;
 		}
 		
 		$string = $this->_values[$key];
 		for ($i = 0; $i < sizeof($args); $i++) {
-			$string = str_replace("{" . ($i + 1) . "}", $args[$i], $string);
+			$string = str_replace("{" . ($i + 1) . "}", trim($args[$i]), $string);
 		}
 		return $string;
 	}

@@ -37,7 +37,7 @@ abstract class Controller {
 		} else {
 			$viewContent = $this->_view->view(self::$_viewPath . $view, $data);
 		}
-		return $this->_view->i18n($viewContent);
+		return $this->_view->translate($viewContent);
 	}
 	
 	/**

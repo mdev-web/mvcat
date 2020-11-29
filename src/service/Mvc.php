@@ -40,8 +40,9 @@ class Mvc {
 	public function setLanguage($lang) {
 		if ($lang === null || empty($this->_languages) || !array_key_exists($lang, $this->_languages)) {
 			$this->_i18N = new I18N();
+		} else {
+			$this->_i18N = new I18N($this->_languages[$lang]);
 		}
-		$this->_i18N = new I18N($this->_languages[$lang]);
 	}
 
 	public function execute(): void {
