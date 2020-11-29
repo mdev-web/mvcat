@@ -22,6 +22,18 @@ class I18N {
 		}
 		return $string;
 	}
+	
+	public function get1($key, $args = []) {
+		if (!key_exists($key, $this->_values)) {
+			return $key;
+		}
+		
+		$string = $this->_values[$key];
+		for ($i = 0; $i < sizeof($args); $i++) {
+			$string = str_replace("{" . ($i + 1) . "}", $args[$i], $string);
+		}
+		return $string;
+	}
 
 	private function _parse($content): array {		
 		$content = preg_replace("/\/\*[\s\S]*?\*\/|([^:]|^)\/\/.*$/im", "", $content);

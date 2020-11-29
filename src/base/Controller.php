@@ -29,12 +29,15 @@ abstract class Controller {
 	 * @return string view
 	 */
 	protected function view(string $view, array $data = array(), string $template = null): string {
+		$viewContent = "";
 		if ($template !== null && key_exists($template, $this->_templates)) {
-			return $this->_view->template(self::$_viewPath . $view, $data, $this->_templates[$template]);
+			$viewContent = $this->_view->template(self::$_viewPath . $view, $data, $this->_templates[$template]);
 		} else if ($template !== null && !key_exists($template, $this->_templates)) {
 			throw new MvcException("Template '$template' not defined in MvcFactory using method template(youtemplate)");
+		} else {
+			$viewContent = $this->_view->view(self::$_viewPath . $view, $data);
 		}
-		return $this->_view->view(self::$_viewPath . $view, $data);
+		return $this->_view->i18n($viewContent);
 	}
 	
 	/**

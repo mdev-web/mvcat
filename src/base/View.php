@@ -40,6 +40,14 @@ class View {
 		}
 		return $this->_render($viewPath, $data);
 	}
+	
+	public function i18n(string $content) {		
+		preg_match_all('/\${(.*?)}/u', $content, $match);
+		foreach ($match[1] as $m){
+			$content = str_replace('${' . $m . '}', $this->_getValue($m), $content);
+		}		
+		return $content;
+	}
 
 	private function _render(string $view, array $data) {
 		$data["i18n"] = $this->_i18n;
@@ -49,6 +57,14 @@ class View {
 		$buffer = ob_get_contents();
 		ob_get_clean();
 		return $buffer;
+	}
+	
+	private function _getValue($key) {
+		if (strpos($key, ">>")) {
+			$array = explode(">>", $key);
+			return $this->_i18n->get1($array[0], explode(",", $array[1]));
+		}				
+		return $this->_i18n->get1($key);
 	}
 }
 
