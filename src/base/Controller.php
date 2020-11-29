@@ -12,7 +12,10 @@ abstract class Controller {
 	private $_view;
 	private $_templates;
 	private $_repositories;
-	private $_requestContext;	
+	private $_requestContext;
+	
+	/** @var I18N  */
+	protected $_i18n;
 
 	public function __construct() { 
 		$this->_view = new View();
@@ -86,6 +89,7 @@ abstract class Controller {
 	}
 	
 	protected function setI18N(I18N $i18n) {
+		$this->_i18n = $i18n;
 		$this->_view->setI18N($i18n);
 	}
 }

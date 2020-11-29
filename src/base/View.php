@@ -62,9 +62,9 @@ class View {
 	private function _getValue($key) {
 		if (strpos($key, self::SEPARATOR)) {
 			$array = explode(self::SEPARATOR, $key);
-			return $this->_i18n->get($array[0], explode(",", $array[1]));
+			return $this->_i18n->get(trim($array[0]), explode(",", $array[1]));
 		}				
-		return $this->_i18n->get($key);
+		return $this->_i18n->get(trim($key));
 	}
 }
 

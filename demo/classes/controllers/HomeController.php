@@ -10,6 +10,7 @@ class HomeController extends Controller  {
 	}
 	
 	public function indexAction(array $params) {
+		$params["header"] = $this->_i18n->get("main.layout.head", ["demo"]);
 		echo $this->view("index.inc", $params, "main");
 	}
 }

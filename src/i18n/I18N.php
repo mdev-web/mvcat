@@ -9,7 +9,7 @@ class I18N {
 		$this->_values = $path === null ? array () : $this->_parse(file_get_contents($path));
 	}
 		
-	public function get($key, $args = []) {
+	public function get(string $key, array $args = []) {
 		if (!key_exists($key, $this->_values)) {
 			return $key;
 		}
@@ -26,7 +26,7 @@ class I18N {
 		$content = preg_replace('/^\h*\v+/m', '',$content);
 		
 		$values = array();
-		if (preg_match_all('/([a-zA-Z0-9\-_\.]*)=([^\r\n]*)/u', $content, $matches, PREG_SET_ORDER)) {
+		if (preg_match_all('/([a-zA-Z0-9\-_\. ]*)=([^\r\n]*)/u', $content, $matches, PREG_SET_ORDER)) {
 			foreach ($matches as $gr) {
 				$values[trim($gr[1])] = trim($gr[2]);
 			}
