@@ -120,3 +120,5 @@ $this->getRequestContext()->getGetData;  // get data
 3. use in template or view: 
 * Without arguments ${key}
 * With arguments ${key>>arg1,arg2,arg3}
+4. use in constructor
+* $this->_i18n->get("key", ["arg1, arg2"]);
