@@ -4,7 +4,7 @@ namespace bomi\mvcat\demo\classes\controllers;
 use bomi\mvcat\base\Controller;
 use bomi\mvcat\demo\classes\repositories\UserRepository;
 
-class User extends Controller  {
+class UserController extends Controller  {
 	
 	private $_userRepo;
 	

@@ -82,11 +82,14 @@ class ManifestContext {
 	}
 	
 	private function _buildController(Route $route, array $destinations) {
+		$suffix = "Controller";
 		$controller = str_replace("\\", "/", $route->getParameters()->getController());
 		$split = preg_split("/\//", $controller);
 		$index = count($split) - 1;
 		$split[$index] = ucfirst($split[$index]);
-		return str_replace("/", "\\", $destinations["controllers"] . implode("/", $split));
+		$controller = str_replace("/", "\\", $destinations["controllers"] . implode("/", $split));
+		
+		return substr($controller, -strlen($suffix)) === $suffix ? $controller : $controller . $suffix;
 	}
 	
 	/**

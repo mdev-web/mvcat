@@ -3,7 +3,7 @@ namespace bomi\mvcat\demo\classes\controllers;
 
 use bomi\mvcat\base\Controller;
 
-class Home extends Controller  {
+class HomeController extends Controller  {
 
 	public function __construct() {
 		parent::__construct();
