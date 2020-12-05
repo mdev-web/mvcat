@@ -14,7 +14,7 @@ class Manifest {
 	 * @var string[]
 	 * @SerializedName("destinations") 
 	 */
-	private $_destinations;
+	private $_destinations = array();
 	public function getDestinations() : array {
 		return $this->_destinations;
 	}
@@ -23,7 +23,7 @@ class Manifest {
 	 * @var Route[]
 	 * @SerializedName("routes") 
 	 */
-	private $_routes;
+	private $_routes = array();
 	public function getRoutes(): array {
 		return $this->_routes;
 	} 
@@ -32,7 +32,7 @@ class Manifest {
 	 * @var Template[]
 	 * @SerializedName("templates")
 	 */
-	private $_templates;
+	private $_templates = array();
 	public function getTemplates(): array {
 		return $this->_templates;
 	} 
@@ -50,7 +50,7 @@ class Manifest {
 	 * @var array
 	 * @SerializedName("languages")
 	 */
-	private $_languages;
+	private $_languages = array();
 	public function getLanguages(): array {
 		return $this->_languages;
 	} 
