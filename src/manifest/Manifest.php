@@ -4,6 +4,7 @@ use Tebru\Gson\Annotation\SerializedName;
 use bomi\mvcat\manifest\entities\Route;
 use bomi\mvcat\manifest\entities\Template;
 use bomi\mvcat\manifest\entities\Data;
+use bomi\mvcat\manifest\entities\I18N;
 
 class Manifest {
 	
@@ -47,12 +48,15 @@ class Manifest {
 	} 
 	
 	/**
-	 * @var array
-	 * @SerializedName("languages")
+	 * @var I18N
+	 * @SerializedName("i18n")
 	 */
-	private $_languages = array();
-	public function getLanguages(): array {
-		return $this->_languages;
+	private $_i18n;
+	public function getI18N(): I18N {
+		if ($this->_i18n === null) {
+			return new I18N();
+		}
+		return $this->_i18n;
 	} 
 
 	public function __construct() {}

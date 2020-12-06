@@ -2,11 +2,11 @@
 
 namespace bomi\mvcat\i18n;
 
-class I18N {
+class I18NService {
 	private $_values;
 
 	public function __construct(string $path = null) {
-		$this->_values = $path === null ? array () : $this->_parse(file_get_contents($path));
+		$this->_values = $path === null ? array () : $this->_findValues($path);
 	}
 		
 	public function get(string $key, array $args = []) {
@@ -19,6 +19,10 @@ class I18N {
 			$string = str_replace("{" . ($i + 1) . "}", trim($args[$i]), $string);
 		}
 		return $string;
+	}
+	
+	private function _findValues(string $path) {
+		return file_exists($path) ? $this->_parse(file_get_contents($path)) : array();
 	}
 
 	private function _parse($content): array {		
