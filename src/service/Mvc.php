@@ -5,6 +5,7 @@ use bomi\mvcat\base\Controller;
 use bomi\mvcat\exceptions\MvcException;
 use bomi\mvcat\context\MvcContext;
 use bomi\mvcat\i18n\I18NService;
+use bomi\mvcat\manifest\entities\I18N;
 
 class Mvc {
 	protected $_controller;
@@ -13,9 +14,11 @@ class Mvc {
 	protected $_viewsDestination;
 	protected $_requestContext;
 	protected $_templates = array ();
-	protected $_repositories = array ();
-	protected $_languages = array();
-	protected $_i18N;
+	protected $_repositories = array ();	
+	/** @var I18N  */
+	protected $_i18n;
+	/** @var I18NService  */
+	protected $_i18NService;
 
 	protected function __construct() {}
 
@@ -27,7 +30,8 @@ class Mvc {
 		$this->_requestContext = $context->getManifestContext()->getRequestContext();
 		$this->_templates = $context->getManifestContext()->getTemplates();
 		$this->_repositories = $context->getManifestContext()->getRepositories();
-		$this->_languages = $context->getManifestContext()->getLanguages();
+		$this->_i18n = $context->getManifestContext()->getI18N();
+		$this->_i18NService = new I18NService($this->_i18n->getDefault());
 	}
 
 	public static function create(MvcContext $context): self {
@@ -36,11 +40,11 @@ class Mvc {
 		return $mvc;
 	}
 	
-	public function setLanguage($lang) {
-		if ($lang === null || empty($this->_languages) || !array_key_exists($lang, $this->_languages)) {
-			$this->_i18N = new I18NService();
+	public function setLanguage($lang = null) {
+		if ($lang === null || empty($this->_i18n->getLanguages()) || !array_key_exists($lang, $this->_i18n->getLanguages())) {
+			$this->_i18NService = new I18NService($this->_i18n->getDefault());
 		} else {
-			$this->_i18N = new I18NService($this->_languages[$lang]);
+			$this->_i18NService = new I18NService($this->_i18n->getLanguages()[$lang]);
 		}
 	}
 
@@ -52,7 +56,7 @@ class Mvc {
 			$this->addRequestContext($controller, $this->_requestContext);
 			$this->addTemplates($controller, $this->_templates);
 			$this->_addMethod($controller, "setRepositories", $this->_repositories);
-			$this->_addMethod($controller, "setI18N", $this->_i18N);
+			$this->_addMethod($controller, "setI18N", $this->_i18NService);
 
 			if (method_exists($controller, $this->_action) && $controller->beforeAction($this->_parameters)) {
 				$controller->{$this->_action}($this->_parameters);

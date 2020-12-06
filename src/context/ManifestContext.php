@@ -6,6 +6,7 @@ use bomi\mvcat\manifest\Manifest;
 use bomi\mvcat\manifest\entities\Route;
 use bomi\mvcat\manifest\entities\Template;
 use bomi\mvcat\manifest\entities\Data;
+use bomi\mvcat\manifest\entities\I18N;
 
 class ManifestContext {
 	
@@ -44,9 +45,9 @@ class ManifestContext {
 		return $this->_repositories;
 	}
 	
-	private $_languages;
-	public function getLanguages(): array {
-		return $this->_languages;
+	private $_i18n;
+	public function getI18N(): I18N {
+		return $this->_i18n;
 	} 
 
 	private function __construct(Route $route, Manifest $manifest, RequestContext $requestContext) {
@@ -57,7 +58,7 @@ class ManifestContext {
 		$this->_viewsDestination = $manifest->getDestinations()["views"];
 		$this->_setTemplates($manifest->getTemplates());
 		$this->_setRepositories($manifest->getData());
-		$this->_languages = $manifest->getI18N()->getLanguages();
+		$this->_i18n = $manifest->getI18N();
 	}
 	
 	public static function create(Manifest $manifest, RequestContext $requestContext) {

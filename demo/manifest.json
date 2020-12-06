@@ -78,7 +78,7 @@
 	},
 	"i18n" : {
 		"folder" : "public/i18n/",
-		"default" : "lang-de.properties",
+		"default" : "lang-ru.properties",
 		"languages" : {
 			"de" : "lang-de.properties",
 			"ru" : "lang-ru.properties"	

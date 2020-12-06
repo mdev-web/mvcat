@@ -20,7 +20,7 @@ class I18N implements JsonDeserializer {
 	 */
 	private $_default;
 	public function getDefault(): string {
-		return $this->_default;
+		return $this->_folder . $this->_default;
 	}
 	
 	/**
