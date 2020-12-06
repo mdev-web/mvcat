@@ -57,7 +57,7 @@ class ManifestContext {
 		$this->_viewsDestination = $manifest->getDestinations()["views"];
 		$this->_setTemplates($manifest->getTemplates());
 		$this->_setRepositories($manifest->getData());
-		$this->_languages = $manifest->getLanguages();
+		$this->_languages = $manifest->getI18N()->getLanguages();
 	}
 	
 	public static function create(Manifest $manifest, RequestContext $requestContext) {

@@ -6,6 +6,7 @@ use bomi\mvcat\exceptions\MvcException;
 use bomi\mvcat\context\MvcContext;
 use bomi\mvcat\context\RequestContext;
 use bomi\mvcat\i18n\I18N;
+use bomi\mvcat\i18n\I18NService;
 
 class Mvc {
 	protected $_controller;
@@ -39,9 +40,9 @@ class Mvc {
 	
 	public function setLanguage($lang) {
 		if ($lang === null || empty($this->_languages) || !array_key_exists($lang, $this->_languages)) {
-			$this->_i18N = new I18N();
+			$this->_i18N = new I18NService();
 		} else {
-			$this->_i18N = new I18N($this->_languages[$lang]);
+			$this->_i18N = new I18NService($this->_languages[$lang]);
 		}
 	}
 

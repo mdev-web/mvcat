@@ -76,10 +76,10 @@
 			"user" : "bomi/mvcat/demo/classes/repositories/UserRepository"
 		}		
 	},
-	"languages" : {
+	"i18n" : {
 		"folder" : "public/i18n/",
 		"default" : "lang-de.properties",
-		"i18n" : {
+		"languages" : {
 			"de" : "lang-de.properties",
 			"ru" : "lang-ru.properties"	
 		}

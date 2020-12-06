@@ -4,7 +4,7 @@ namespace bomi\mvcat\base;
 
 use bomi\mvcat\manifest\entities\Template;
 use bomi\mvcat\exceptions\FileNotFoundException;
-use bomi\mvcat\i18n\I18N;
+use bomi\mvcat\i18n\I18NService;
 
 class View {
 	public const VIEW_RENDER = "viewRender";
@@ -14,7 +14,7 @@ class View {
 
 	public function __construct() {}
 	
-	public function setI18N(I18N $i18n) {
+	public function setI18N(I18NService $i18n) {
 		$this->_i18n = $i18n;
 	}
 	

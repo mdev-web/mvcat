@@ -4,7 +4,7 @@ namespace bomi\mvcat\base;
 
 use bomi\mvcat\exceptions\MvcException;
 use bomi\mvcat\context\RequestContext;
-use bomi\mvcat\i18n\I18N;
+use bomi\mvcat\i18n\I18NService;
 
 abstract class Controller {
 	private static $_viewPath;
@@ -14,7 +14,7 @@ abstract class Controller {
 	private $_repositories;
 	private $_requestContext;
 	
-	/** @var I18N  */
+	/** @var I18NService  */
 	protected $_i18n;
 
 	public function __construct() { 
@@ -88,7 +88,7 @@ abstract class Controller {
 		$this->_requestContext = $context;
 	}
 	
-	protected function setI18N(I18N $i18n) {
+	protected function setI18N(I18NService $i18n) {
 		$this->_i18n = $i18n;
 		$this->_view->setI18N($i18n);
 	}

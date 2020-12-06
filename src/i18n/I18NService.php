@@ -2,7 +2,7 @@
 
 namespace bomi\mvcat\i18n;
 
-class I18N {
+class I18NService {
 	private $_values;
 
 	public function __construct(string $path = null) {
