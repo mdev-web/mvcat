@@ -19,7 +19,10 @@ class I18N implements JsonDeserializer {
 	 * @SerializedName("default")
 	 */
 	private $_default;
-	public function getDefault(): string {
+	public function getDefault(): ?string {
+		if ($this->_default === null) {
+			return $this->_default;
+		}
 		return $this->_folder . $this->_default;
 	}
 	
@@ -34,7 +37,7 @@ class I18N implements JsonDeserializer {
 
 	public function __construct() {
 		$this->_folder = "";
-		$this->_default = "";
+		$this->_default = null;
 		$this->_languages = array();
 	}
 	

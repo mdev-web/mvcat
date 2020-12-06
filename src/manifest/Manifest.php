@@ -51,9 +51,12 @@ class Manifest {
 	 * @var I18N
 	 * @SerializedName("i18n")
 	 */
-	private $_18n;
+	private $_i18n;
 	public function getI18N(): I18N {
-		return $this->_18n;
+		if ($this->_i18n === null) {
+			return new I18N();
+		}
+		return $this->_i18n;
 	} 
 
 	public function __construct() {}
