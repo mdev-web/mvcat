@@ -77,7 +77,11 @@
 		}		
 	},
 	"languages" : {
-		"de" : "public/i18n/lang-de.properties",
-		"ru" : "public/i18n/lang-ru.properties"
+		"folder" : "public/i18n/",
+		"default" : "lang-de.properties",
+		"i18n" : {
+			"de" : "lang-de.properties",
+			"ru" : "lang-ru.properties"	
+		}
 	}
 }
