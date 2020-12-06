@@ -4,8 +4,6 @@ namespace bomi\mvcat\service;
 use bomi\mvcat\base\Controller;
 use bomi\mvcat\exceptions\MvcException;
 use bomi\mvcat\context\MvcContext;
-use bomi\mvcat\context\RequestContext;
-use bomi\mvcat\i18n\I18N;
 use bomi\mvcat\i18n\I18NService;
 
 class Mvc {
