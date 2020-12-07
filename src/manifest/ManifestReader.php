@@ -8,8 +8,6 @@ use bomi\mvcat\manifest\helpers\ParameterListDeserializer;
 use bomi\mvcat\manifest\helpers\RouteDeserializer;
 use bomi\mvcat\manifest\entities\ParameterList;
 use bomi\mvcat\manifest\entities\Route;
-use bomi\mvcat\manifest\entities\Template;
-use bomi\mvcat\manifest\helpers\TemplateDeserializer;
 use bomi\mvcat\manifest\entities\I18N;
 
 class ManifestReader {
