@@ -84,9 +84,12 @@ RewriteBase /mvcat/demo/
 			"user" : "bomi/mvcat/demo/classes/repositories/UserRepository"
 		}		
 	},
-	"languages" : {
-		"de" : "public/i18n/lang-de.properties",
-		"ru" : "public/i18n/lang-ru.properties"
+	"i18n" : {
+		"folder" : "public/i18n/",
+		"default" : "lang-de.properties",
+		"languages" : {
+			"ru" : "lang-ru.properties"	
+		}
 	}
 }
 ```
