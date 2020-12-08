@@ -9,7 +9,7 @@ use bomi\mvcat\manifest\entities\I18N;
 class Manifest {
 	
 	/** @SerializedName("version") */
-	private $_version;
+	private $_version = "v1";
 
 	/** 
 	 * @var string[]
@@ -44,6 +44,9 @@ class Manifest {
 	 */
 	private $_data;
 	public function getData(): Data {
+		if ($this->_data == null) {
+			return new Data();
+		}
 		return $this->_data;
 	} 
 	

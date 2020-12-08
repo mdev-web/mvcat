@@ -37,12 +37,5 @@ class ParameterList {
 				break;
 		}
 	}
-
-	public function __get($name) {
-		if (isset($this->_parameters[$name])) {
-			return $this->_parameters[$name];
-		}
-		return null;
-	}
 }
 

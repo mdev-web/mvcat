@@ -74,7 +74,7 @@
 		},
 		"repositories" : {
 			"user" : "bomi/mvcat/demo/classes/repositories/UserRepository"
-		}		
+		}	
 	},
 	"i18n" : {
 		"folder" : "public/i18n/",

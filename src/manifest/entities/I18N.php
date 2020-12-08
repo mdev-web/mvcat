@@ -6,13 +6,16 @@ use Tebru\Gson\JsonDeserializationContext;
 use Tebru\Gson\JsonDeserializer;
 use Tebru\PhpType\TypeToken;
 
-class I18N implements JsonDeserializer {
+class I18N {
 	
 	/**
 	 * @var string
 	 * @SerializedName("folder")
 	 */
 	private $_folder;
+	public function getFolder() {
+		return $this->_folder;
+	}
 
 	/**
 	 * @var string
@@ -41,16 +44,14 @@ class I18N implements JsonDeserializer {
 		$this->_languages = array();
 	}
 	
-	public function deserialize($value, TypeToken $type, JsonDeserializationContext $context) {
-		foreach ($value as $key => $v) {
-			$this->{"_" . $key} = $v;
-		}
-		
+	public function __set($name, $value) {
+		$this->{"_" . $name} = $value;
+	}
+	
+	public function updateLangueages() {
 		foreach ($this->_languages as $key => $v) {
-			$this->_languages[$key] = $this->_folder . $v;
+			$this->setLanguage($key, $this->_folder . $v);
 		}
-		
-		return $this;
 	}
 }
 
