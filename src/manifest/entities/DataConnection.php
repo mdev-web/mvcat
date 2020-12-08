@@ -61,6 +61,12 @@ class DataConnection {
 		return $this->_additional;
 	}
 
-	public function __construct() {}
+	public function __construct() {
+		$this->_additional = array();
+		$this->_host = "";
+		$this->_dbname = "";
+		$this->_username = "";
+		$this->_password = "";
+	}
 }
 

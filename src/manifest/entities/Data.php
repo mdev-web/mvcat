@@ -12,6 +12,9 @@ class Data {
 	 */
 	private $_connection;
 	public function getConnection(): DataConnection {
+		if ($this->_connection == null) {
+			return new DataConnection();
+		}
 		return $this->_connection;
 	}
 	
@@ -24,6 +27,9 @@ class Data {
 		return $this->_repositories;
 	}
 	
-	public function __construct() {}
+	public function __construct() {
+		$this->_connection = new DataConnection();
+		$this->_repositories = array();
+	}
 }
 

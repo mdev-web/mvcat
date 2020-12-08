@@ -44,6 +44,9 @@ class Manifest {
 	 */
 	private $_data;
 	public function getData(): Data {
+		if ($this->_data == null) {
+			return new Data();
+		}
 		return $this->_data;
 	} 
 	
