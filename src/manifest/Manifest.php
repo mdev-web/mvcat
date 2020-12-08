@@ -9,7 +9,7 @@ use bomi\mvcat\manifest\entities\I18N;
 class Manifest {
 	
 	/** @SerializedName("version") */
-	private $_version;
+	private $_version = "v1";
 
 	/** 
 	 * @var string[]
