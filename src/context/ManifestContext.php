@@ -49,6 +49,11 @@ class ManifestContext {
 	public function getI18N(): I18N {
 		return $this->_i18n;
 	} 
+	
+	private $_globals;
+	public function getGlobals(): array {
+	    return $this->_globals;
+	}
 
 	private function __construct(Route $route, Manifest $manifest, RequestContext $requestContext) {
 		$this->_requestContext = $requestContext;
@@ -59,6 +64,7 @@ class ManifestContext {
 		$this->_setTemplates($manifest->getTemplates());
 		$this->_setRepositories($manifest->getData());
 		$this->_i18n = $manifest->getI18N();
+		$this->_globals = $manifest->getGlobals();
 	}
 	
 	public static function create(Manifest $manifest, RequestContext $requestContext) {

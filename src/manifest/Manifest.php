@@ -7,10 +7,16 @@ use bomi\mvcat\manifest\entities\Data;
 use bomi\mvcat\manifest\entities\I18N;
 
 class Manifest {
-	
-	/** @SerializedName("version") */
-	private $_version = "v1";
 
+	/**
+	 * @var array
+	 * @SerializedName("globals")
+	 */
+	private $_globals = array();
+	public function getGlobals() : array {
+	    return $this->_globals;
+	}
+	
 	/** 
 	 * @var string[]
 	 * @SerializedName("destinations") 

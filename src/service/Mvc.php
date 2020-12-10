@@ -31,7 +31,7 @@ class Mvc {
 		$this->_templates = $context->getManifestContext()->getTemplates();
 		$this->_repositories = $context->getManifestContext()->getRepositories();
 		$this->_i18n = $context->getManifestContext()->getI18N();
-		$this->_i18NService = new I18NService($this->_i18n->getDefault());
+		$this->_i18NService = new I18NService($this->_i18n->getDefault(), $context->getManifestContext()->getGlobals());
 	}
 
 	public static function create(MvcContext $context): self {

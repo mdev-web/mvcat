@@ -1,5 +1,7 @@
 {
-	"version" : "v.1.0.0",
+	"globals" : {
+		"base_url" : "my/base/"
+	},
 	"destinations" : {
 		"views": "public/views/",
 		"controllers": "bomi/mvcat/demo/classes/controllers/"
