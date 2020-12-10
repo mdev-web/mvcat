@@ -10,6 +10,8 @@ use bomi\mvcat\manifest\entities\ParameterList;
 use bomi\mvcat\manifest\entities\Route;
 use bomi\mvcat\manifest\entities\I18N;
 use bomi\mvcat\manifest\helpers\I18NDeserializer;
+use bomi\mvcat\manifest\entities\Routing;
+use bomi\mvcat\manifest\helpers\RoutingDeserializer;
 
 class ManifestReader {
 
@@ -29,6 +31,7 @@ class ManifestReader {
 
 		$gson = Gson::builder()
 			->registerType(ParameterList::class, new ParameterListDeserializer())
+			->registerType(Routing::class, new RoutingDeserializer())
 			->registerType(Route::class, new RouteDeserializer())
 			->registerType(I18N::class, new I18NDeserializer())
 			->build();

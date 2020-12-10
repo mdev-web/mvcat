@@ -5,6 +5,7 @@ use bomi\mvcat\manifest\entities\Route;
 use bomi\mvcat\manifest\entities\Template;
 use bomi\mvcat\manifest\entities\Data;
 use bomi\mvcat\manifest\entities\I18N;
+use bomi\mvcat\manifest\entities\Routing;
 
 class Manifest {
 
@@ -26,15 +27,15 @@ class Manifest {
 		return $this->_destinations;
 	}
 	
-	/** 
-	 * @var Route[]
-	 * @SerializedName("routes") 
+	/**
+	 * @var Routing
+	 * @SerializedName("routing")
 	 */
-	private $_routes = array();
-	public function getRoutes(): array {
-		return $this->_routes;
+	private $_routing;
+	public function getRouting(): Routing {
+		return $this->_routing;
 	} 
-	
+		
 	/**
 	 * @var Template[]
 	 * @SerializedName("templates")

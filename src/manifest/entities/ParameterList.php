@@ -27,7 +27,7 @@ class ParameterList {
 	public function __set($name, $value) {
 		switch($name){
 			case "controller" :
-				$this->_controller = $value;
+				$this->_controller = $this->_buildController($value);
 				break;
 			case "action" :
 				$this->_action = $value;
@@ -36,6 +36,17 @@ class ParameterList {
 				$this->_parameters[$name] = $value;
 				break;
 		}
+	}
+	
+	private function _buildController($controller) {
+		$suffix = "Controller";
+		$controller = str_replace("\\", "/", $controller);
+		$split = preg_split("/\//", $controller);
+		$index = count($split) - 1;
+		$split[$index] = ucfirst($split[$index]);
+		$controller =  str_replace("/", "\\", implode("/", $split));
+
+		return substr($controller, -strlen($suffix)) === $suffix ? $controller : $controller . $suffix;
 	}
 }
 

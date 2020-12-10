@@ -57,7 +57,7 @@ class ManifestContext {
 
 	private function __construct(Route $route, Manifest $manifest, RequestContext $requestContext) {
 		$this->_requestContext = $requestContext;
-		$this->_controller = $this->_buildController($route, $manifest->getDestinations());
+		$this->_controller = $route->getParameters()->getController();
 		$this->_action = $route->getParameters()->getAction();
 		$this->_parameters = $route->getParameters()->getParameters();
 		$this->_viewsDestination = $manifest->getDestinations()["views"];
@@ -68,7 +68,7 @@ class ManifestContext {
 	}
 	
 	public static function create(Manifest $manifest, RequestContext $requestContext) {
-		foreach ($manifest->getRoutes() as $route) {
+		foreach ($manifest->getRouting()->getRoutes() as $route) {
 			if (in_array($requestContext->getMethod(), $route->getMethods())  && self::_match($requestContext->getUrlParameters(), $route)) {
 				return new self($route, $manifest, $requestContext);
 			}
@@ -86,17 +86,6 @@ class ManifestContext {
 			return true;
 		}
 		return false;
-	}
-	
-	private function _buildController(Route $route, array $destinations) {
-		$suffix = "Controller";
-		$controller = str_replace("\\", "/", $route->getParameters()->getController());
-		$split = preg_split("/\//", $controller);
-		$index = count($split) - 1;
-		$split[$index] = ucfirst($split[$index]);
-		$controller = str_replace("/", "\\", $destinations["controllers"] . implode("/", $split));
-		
-		return substr($controller, -strlen($suffix)) === $suffix ? $controller : $controller . $suffix;
 	}
 	
 	/**
