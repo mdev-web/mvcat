@@ -19,6 +19,8 @@ class Mvc {
 	protected $_i18n;
 	/** @var I18NService  */
 	protected $_i18NService;
+	
+	protected $_globals = array();
 
 	protected function __construct() {}
 
@@ -31,7 +33,8 @@ class Mvc {
 		$this->_templates = $context->getManifestContext()->getTemplates();
 		$this->_repositories = $context->getManifestContext()->getRepositories();
 		$this->_i18n = $context->getManifestContext()->getI18N();
-		$this->_i18NService = new I18NService($this->_i18n->getDefault(), $context->getManifestContext()->getGlobals());
+		$this->_globals = $context->getManifestContext()->getGlobals();
+		$this->_i18NService = new I18NService($this->_i18n->getDefault(), $this->_globals);
 	}
 
 	public static function create(MvcContext $context): self {
@@ -41,11 +44,9 @@ class Mvc {
 	}
 	
 	public function setLanguage($lang = null) {
-		if ($lang === null || empty($this->_i18n->getLanguages()) || !array_key_exists($lang, $this->_i18n->getLanguages())) {
-			$this->_i18NService = new I18NService($this->_i18n->getDefault());
-		} else {
-			$this->_i18NService = new I18NService($this->_i18n->getLanguages()[$lang]);
-		}
+		if ($lang !== null && !empty($this->_i18n->getLanguages()) && array_key_exists($lang, $this->_i18n->getLanguages())) {
+			$this->_i18NService = new I18NService($this->_i18n->getLanguages()[$lang], $this->_globals);
+		} 
 	}
 
 	public function execute(): void {
