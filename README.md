@@ -43,11 +43,10 @@ RewriteBase /mvcat/demo/
 ```json
 {
 	"version" : "v.1.0.0",
-	"destinations" : {
+	"routing" : {
 		"views": "public/views/",
-		"controllers": "bomi/mvcat/demo/classes/controllers/"
-	},
-	"routes" : [
+		"controllers": "bomi/mvcat/demo/classes/controllers/",
+		"routes" : [
 		{
 			"path": "/",
 			"parameters": {
@@ -62,7 +61,8 @@ RewriteBase /mvcat/demo/
 				"action": "user"
 			}
 		}
-	],
+		]
+	},
 	"templates" : [
 		{
 			"name" : "main",
