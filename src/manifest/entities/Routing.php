@@ -26,7 +26,7 @@ class Routing {
 	}
 	
 	public function __set($name, $value) {
-	    if ($name === "view") {
+	    if ($name === "views") {
 	        $this->_viewsPath = $value;
 	    }
 	}

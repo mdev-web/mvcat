@@ -60,7 +60,7 @@ class ManifestContext {
 		$this->_controller = $route->getParameters()->getController();
 		$this->_action = $route->getParameters()->getAction();
 		$this->_parameters = $route->getParameters()->getParameters();
-		$this->_viewsDestination = $manifest->getDestinations()["views"];
+		$this->_viewsDestination = $manifest->getRouting()->getViewsPaht();
 		$this->_setTemplates($manifest->getTemplates());
 		$this->_setRepositories($manifest->getData());
 		$this->_i18n = $manifest->getI18N();
