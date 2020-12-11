@@ -19,7 +19,7 @@ class RoutingDeserializer implements JsonDeserializer {
 		$controller = !isset($value["controllers"]) ? "" : $value["controllers"];
 
 		foreach ($value["routes"] as $route) {
-			$route["parameters"]["controller"] = $controller . $route["parameters"]["controller"];
+			$route["parameters"]["controller"] = isset($route["parameters"]["controller"]) ? $controller . $route["parameters"]["controller"] : $controller;
 			$routing->addRoute($context->deserialize($route, Route::class));
 		}
 		return $routing;

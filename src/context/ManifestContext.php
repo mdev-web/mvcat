@@ -7,16 +7,23 @@ use bomi\mvcat\manifest\entities\Route;
 use bomi\mvcat\manifest\entities\Template;
 use bomi\mvcat\manifest\entities\Data;
 use bomi\mvcat\manifest\entities\I18N;
+use bomi\mvcat\exceptions\MvcNullReferenceException;
 
 class ManifestContext {
 	
 	private $_controller;
 	public function getController() : string {
+		if ($this->_action === null) {
+			throw new MvcNullReferenceException("Controller");
+		}
 		return $this->_controller;
 	}
 	
 	private $_action;
 	public function getAction() : string {
+		if ($this->_action === null) {
+			throw new MvcNullReferenceException("Action");
+		}
 		return $this->_action;
 	}
 	

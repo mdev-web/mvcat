@@ -1,21 +1,30 @@
 <?php
+
 namespace bomi\mvcat\manifest\entities;
 
 use Tebru\Gson\Annotation\SerializedName;
 
 class ParameterList {
+	private const CONTROLLER_SFX = "Controller";
 	private $_controller;
+
 	public function getController() {
-		return $this->_controller;
+		return substr($this->_controller, - strlen(self::CONTROLLER_SFX)) === self::CONTROLLER_SFX 
+				? $this->_controller 
+				: $this->_controller . self::CONTROLLER_SFX;
 	}
-	
 	private $_action;
+
 	public function getAction() {
 		return $this->_action;
 	}
 
-	/**  @SerializedName("parameters") */
+	/**
+	 *
+	 *  @SerializedName("parameters")
+	 */
 	private $_parameters;
+
 	public function getParameters() {
 		return $this->_parameters;
 	}
@@ -37,16 +46,18 @@ class ParameterList {
 				break;
 		}
 	}
-	
-	private function _buildController($controller) {
-		$suffix = "Controller";
-		$controller = str_replace("\\", "/", $controller);
-		$split = preg_split("/\//", $controller);
-		$index = count($split) - 1;
-		$split[$index] = ucfirst($split[$index]);
-		$controller =  str_replace("/", "\\", implode("/", $split));
 
-		return substr($controller, -strlen($suffix)) === $suffix ? $controller : $controller . $suffix;
+	private function _buildController($controller) {
+		if ($this->_controller === null) {
+			$controller = str_replace("\\", "/", $controller);
+			$split = preg_split("/\//", $controller);
+			$index = count($split) - 1;
+			$split[$index] = ucfirst($split[$index]);
+			return str_replace("/", "\\", implode("/", $split));
+		} else if (substr($this->_controller, - 1) === "/" || substr($this->_controller, - 1) === "\\") {
+			return $this->_controller . ucfirst($controller);
+		}
+		return $this->_controller;
 	}
 }
 
