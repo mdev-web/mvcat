@@ -8,10 +8,10 @@ use bomi\mvcat\i18n\I18NService;
 
 abstract class Controller {
 	private static $_viewPath;
+	private static $_repositories;
 	
 	private $_view;
 	private $_templates;
-	private $_repositories;
 	private $_requestContext;
 	
 	/** @var I18NService  */
@@ -58,8 +58,8 @@ abstract class Controller {
 	 * @return mixed your repository
 	 */
 	protected function getRepository(string $repositoryName) {
-		if (key_exists($repositoryName, $this->_repositories)) {
-			return $this->_repositories[$repositoryName];
+		if (key_exists($repositoryName, self::$_repositories)) {
+			return self::$_repositories[$repositoryName];
 		}
 	}
 	
@@ -78,10 +78,6 @@ abstract class Controller {
 	
 	protected function setTemplates($templates) {
 		$this->_templates = $templates;
-	}
-	
-	protected function setRepositories($repositories) {
-		$this->_repositories = $repositories;
 	}
 	
 	protected function setRequestContext($context) {
