@@ -48,4 +48,3 @@ class UserController extends Controller  {
 		echo $this->indexAction($params);
 	}
 }
-

@@ -1,34 +1,31 @@
 <?php
 namespace bomi\mvcat\manifest;
 use Tebru\Gson\Annotation\SerializedName;
-use bomi\mvcat\manifest\entities\Route;
 use bomi\mvcat\manifest\entities\Template;
 use bomi\mvcat\manifest\entities\Data;
 use bomi\mvcat\manifest\entities\I18N;
+use bomi\mvcat\manifest\entities\Routing;
 
 class Manifest {
-	
-	/** @SerializedName("version") */
-	private $_version = "v1";
 
-	/** 
-	 * @var string[]
-	 * @SerializedName("destinations") 
+	/**
+	 * @var array
+	 * @SerializedName("globals")
 	 */
-	private $_destinations = array();
-	public function getDestinations() : array {
-		return $this->_destinations;
+	private $_globals = array();
+	public function getGlobals() : array {
+	    return $this->_globals;
 	}
-	
-	/** 
-	 * @var Route[]
-	 * @SerializedName("routes") 
+		
+	/**
+	 * @var Routing
+	 * @SerializedName("routing")
 	 */
-	private $_routes = array();
-	public function getRoutes(): array {
-		return $this->_routes;
+	private $_routing;
+	public function getRouting(): Routing {
+		return $this->_routing;
 	} 
-	
+		
 	/**
 	 * @var Template[]
 	 * @SerializedName("templates")

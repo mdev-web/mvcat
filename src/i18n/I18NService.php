@@ -5,8 +5,8 @@ namespace bomi\mvcat\i18n;
 class I18NService {
 	private $_values;
 
-	public function __construct(string $path = null) {
-		$this->_values = $path === null ? array () : $this->_findValues($path);
+	public function __construct(string $path, array $globals) {
+		$this->_values = array_merge($globals, ($path === null ? array () : $this->_findValues($path)));
 	}
 		
 	public function get(string $key, array $args = []) {
@@ -21,7 +21,7 @@ class I18NService {
 		return $string;
 	}
 	
-	private function _findValues(string $path) {
+	private function _findValues(string $path): array {
 		return file_exists($path) ? $this->_parse(file_get_contents($path)) : array();
 	}
 
