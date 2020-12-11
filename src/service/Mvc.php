@@ -53,10 +53,12 @@ class Mvc {
 		if ($this->isSupportedClass($this->_controller)) {
 			$controller = new $this->_controller();
 
-			$this->addViewDestination($controller, $this->_viewsDestination);
+			$this->_addProperty($controller, "_viewPath", $this->_viewsDestination);
+			$this->_addProperty($controller, "_repositories", $this->_repositories);
+			
 			$this->addRequestContext($controller, $this->_requestContext);
 			$this->addTemplates($controller, $this->_templates);
-			$this->_addMethod($controller, "setRepositories", $this->_repositories);
+			
 			$this->_addMethod($controller, "setI18N", $this->_i18NService);
 
 			if (method_exists($controller, $this->_action) && $controller->beforeAction($this->_parameters)) {
@@ -74,10 +76,6 @@ class Mvc {
 
 	protected function addTemplates($controller, $value) {
 		$this->_addMethod($controller, "setTemplates", $value);
-	}
-
-	protected function addViewDestination($controller, $value) {
-		$this->_addProperty($controller, "_viewPath", $value);
 	}
 
 	protected function addRequestContext($controller, $value) {
