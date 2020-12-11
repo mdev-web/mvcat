@@ -1,7 +1,6 @@
 <?php
 namespace bomi\mvcat\manifest;
 use Tebru\Gson\Annotation\SerializedName;
-use bomi\mvcat\manifest\entities\Route;
 use bomi\mvcat\manifest\entities\Template;
 use bomi\mvcat\manifest\entities\Data;
 use bomi\mvcat\manifest\entities\I18N;
@@ -17,16 +16,7 @@ class Manifest {
 	public function getGlobals() : array {
 	    return $this->_globals;
 	}
-	
-	/** 
-	 * @var string[]
-	 * @SerializedName("destinations") 
-	 */
-	private $_destinations = array();
-	public function getDestinations() : array {
-		return $this->_destinations;
-	}
-	
+		
 	/**
 	 * @var Routing
 	 * @SerializedName("routing")

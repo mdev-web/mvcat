@@ -3,10 +3,8 @@
 		"baseurl" : "/mvcat/demo/",
 		"asserts" : "public/asserts/"
 	},
-	"destinations" : {
-		"views": "public/views/"
-	},
 	"routing" : {
+		"views": "public/views/",
 		"controllers": "bomi/mvcat/demo/classes/controllers/",
 		"routes" : [
 			{

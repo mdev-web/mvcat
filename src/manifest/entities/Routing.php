@@ -3,6 +3,15 @@ namespace bomi\mvcat\manifest\entities;
 use Tebru\Gson\Annotation\SerializedName;
 
 class Routing {
+    
+    /**
+     * @var string
+     * @SerializedName("views")
+     */
+    private $_viewsPath = "";
+    public function getViewsPaht(): string {
+        return $this->_viewsPath;
+    }
 	
 	/**
 	 * @var Route[]
@@ -14,6 +23,12 @@ class Routing {
 	} 
 	public function addRoute($route) {
 		array_push($this->_routes, $route);
+	}
+	
+	public function __set($name, $value) {
+	    if ($name === "view") {
+	        $this->_viewsPath = $value;
+	    }
 	}
 }
 
