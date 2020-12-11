@@ -42,7 +42,10 @@ RewriteBase /mvcat/demo/
 #### Manifest.json
 ```json
 {
-	"version" : "v.1.0.0",
+	"globals" : {
+		"baseurl" : "/mvcat/demo/",
+		"asserts" : "public/asserts/"
+	},
 	"routing" : {
 		"views": "public/views/",
 		"controllers": "bomi/mvcat/demo/classes/controllers/",
