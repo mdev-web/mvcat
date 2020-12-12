@@ -88,10 +88,9 @@ RewriteBase /mvcat/demo/
 		}		
 	},
 	"i18n" : {
-		"folder" : "public/i18n/",
-		"default" : "lang-de.properties",
+		"default" : "public/i18n/lang-de.properties",
 		"languages" : {
-			"ru" : "lang-ru.properties"	
+			"ru" : "public/i18n/lang-ru.properties"	
 		}
 	}
 }
