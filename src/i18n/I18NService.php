@@ -6,7 +6,7 @@ class I18NService {
 	private $_values;
 
 	public function __construct(string $path, array $globals) {
-		$this->_values = array_merge($globals, ($path === null ? array () : $this->_findValues($path)));
+		$this->_values = array_merge($globals, ($path === "" ? array () : $this->_findValues($path)));
 	}
 		
 	public function get(string $key, array $args = []) {

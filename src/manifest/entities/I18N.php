@@ -10,23 +10,11 @@ class I18N {
 	
 	/**
 	 * @var string
-	 * @SerializedName("folder")
-	 */
-	private $_folder;
-	public function getFolder() {
-		return $this->_folder;
-	}
-
-	/**
-	 * @var string
 	 * @SerializedName("default")
 	 */
 	private $_default;
 	public function getDefault(): ?string {
-		if ($this->_default === null) {
-			return $this->_default;
-		}
-		return $this->_folder . $this->_default;
+		return $this->_default;
 	}
 	
 	/**
@@ -39,8 +27,7 @@ class I18N {
 	}
 
 	public function __construct() {
-		$this->_folder = "";
-		$this->_default = null;
+		$this->_default = "";
 		$this->_languages = array();
 	}
 	
