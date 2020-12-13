@@ -13,7 +13,7 @@ class UserController extends Controller  {
 	 * {@inheritDoc}
 	 * @see \bomi\mvcat\base\Controller::beforeAction()
 	 */
-	public function beforeAction(array $params): bool {
+	public function beforeAction(array &$params): bool {
 		$this->_userRepo = $this->getRepository("user");
 		return parent::beforeAction($params);
 	}

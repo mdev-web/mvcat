@@ -64,11 +64,11 @@ abstract class Controller {
 	}
 	
 	/**
-	 * 
+	 * !iportant: You have to pass a variable by reference to a function so the function can modify the variable.
 	 * @param array $params
 	 * @return bool If false, the action is not executed
 	 */
-	public function beforeAction(array $params): bool { 
+	public function beforeAction(array &$params): bool { 
 		return true;
 	}
 	
