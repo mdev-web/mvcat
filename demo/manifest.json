@@ -1,6 +1,6 @@
 {
 	"globals" : {
-		"baseurl" : "/mvcat/demo/",
+		"baseUrl" : "/demo/",
 		"asserts" : "public/asserts/"
 	},
 	"routing" : {
