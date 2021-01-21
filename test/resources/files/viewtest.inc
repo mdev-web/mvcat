@@ -1,1 +1,0 @@
-Ich bin value '<?= $value; ?>'. Ich bin template variable '${variable}'
