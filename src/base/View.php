@@ -43,7 +43,7 @@ class View {
 	}
 	
 	public function translate(string $content) {		
-		preg_match_all('/\${(.*?)}/u', $content, $match);
+		preg_match_all('/\${(.*?)}/', $content, $match);
 		foreach ($match[1] as $m){
 			$content = str_replace('${' . $m . '}', $this->_getValue($m), $content);
 		}		
