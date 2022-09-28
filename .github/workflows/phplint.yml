@@ -1,7 +1,8 @@
-name: PHP Linting
+name: PHP Syntax Check
 on: push
 jobs:
   phpLint:
+    name: PHP Lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
