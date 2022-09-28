@@ -10,7 +10,7 @@ jobs:
         uses: hrysd/action-php_codesniffer@v1
         with:
           github_token: ${{ secrets.GH_TOKEN }}
-          standard: PSR4
+          standard: PSR12
           target_directory: src
   phpcs:
     name: runner / phpcs
