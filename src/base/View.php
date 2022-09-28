@@ -60,6 +60,7 @@ class View {
 	}
 	
 	private function _getValue($key) {
+		$a = "test";
 		if (strpos($key, self::SEPARATOR)) {
 			$array = explode(self::SEPARATOR, $key);
 			return $this->_i18n->get(trim($array[0]), explode(",", $array[1]));
