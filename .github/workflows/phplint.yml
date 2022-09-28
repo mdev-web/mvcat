@@ -17,4 +17,10 @@ jobs:
         uses: MiddleFieldInc/PHPAnalyseDog@master
         with:
           github_token: ${{ secrets.GH_TOKEN }}
+      - name: TEEEEEEST
+        uses: hrysd/action-php_codesniffer@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+          standard: PSR12
+          target_directory: src
           
