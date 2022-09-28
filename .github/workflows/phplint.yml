@@ -13,8 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: phpcs
-        uses: shirobrak/action-phpcs@v1.0.0
+        uses: MiddleFieldInc/PHPAnalyseDog@master
         with:
           github_token: ${{ secrets.GH_TOKEN }}
-          reporter: github-pr-review  # Change reporter.
-          workdir: 'src/'
+          
