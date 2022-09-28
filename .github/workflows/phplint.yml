@@ -16,6 +16,7 @@ jobs:
       - name: Lint PHP - 2
         uses: Firehed/lint-php-action@v1
   syntax:
+    runs-on: ubuntu-latest
     steps:
       - name: PHP Syntax Checker (Lint)
         uses: StephaneBour/actions-php-lint@8.1
