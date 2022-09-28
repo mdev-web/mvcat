@@ -30,7 +30,7 @@ class RequestContext {
 	
 	private function __construct() {
 		$this->_method = $_SERVER["REQUEST_METHOD"];
-		$this->_urlParameters = filter_input(INPUT_GET, "url", FILTER_SANITIZE_SPECIAL_CHARS);
+        $this->_urlParameters = filter_input(INPUT_GET, "url", FILTER_SANITIZE_SPECIAL_CHARS);
 		$this->_postData = array(); 
 		if (!empty($_POST)) {
 			foreach ($_POST as $key => $value) {
