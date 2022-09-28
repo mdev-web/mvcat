@@ -8,13 +8,6 @@ jobs:
       - name: PHP Lint
         uses: michaelw90/PHP-Lint@2.1.0
 
-
-      - name: PHP Code Style (phpcs)
-        uses: chindit/actions-phpcs@master
-        with:
-          # Folder to check code style
-          dir: src/
-
       - name: PHP CS Fixer
         uses: StephaneBour/actions-php-cs-fixer@1.0
         with:
