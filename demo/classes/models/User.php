@@ -34,7 +34,7 @@ class User implements JsonSerializable {
 		$this->_isActiv = $a;
 	}
 	
-	public function jsonSerialize() {
+	public function jsonSerialize(): mixed {
 		$a = array();
 		foreach ($this->getPrivateProperties($this) as $prop) {
 			$a[$prop->getName()] = $this->{$prop->getName()};
