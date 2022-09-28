@@ -1,5 +1,5 @@
 name: PHP Syntax Check
-on: push
+on: [pull_request]
 jobs:
   phpLint:
     name: PHP Lint
