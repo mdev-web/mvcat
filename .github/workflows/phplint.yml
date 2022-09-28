@@ -4,6 +4,14 @@ jobs:
   phplint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - name: PHP Lint
+      - name: Action checkout
+        uses: actions/checkout@v1
+      - name: PHP Lint - 1
         uses: michaelw90/PHP-Lint@2.1.0
+  lint:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Action checkout
+          uses: actions/checkout@v3          
+        - name: Lint PHP - 2
+          uses: Firehed/lint-php-action@v1
