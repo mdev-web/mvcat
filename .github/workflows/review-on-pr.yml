@@ -1,0 +1,23 @@
+name: PHP checks on PR
+on: pull_request
+jobs:
+  php-lint:
+    name: PHP Check Syntax
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: PHP Lint
+        uses: michaelw90/PHP-Lint@2.1.0  
+        
+  php_reviewdog:
+    name: PHP Code Review
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: PHP Code Review
+        uses: hrysd/action-php_codesniffer@v1
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          standard: PSR12
+          target_directory: src
+          
