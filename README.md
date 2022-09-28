@@ -1,13 +1,13 @@
 
-[![GitHub issues](https://img.shields.io/github/issues/devmboehm/mvcat)](https://github.com/devmboehm/mvcat/issues)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/devmboehm/mvcat)
+[![GitHub issues](https://img.shields.io/github/issues/mdev-web/mvcat)](https://github.com/mdev-web/mvcat/issues)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/mdev-web/mvcat)
 
 --------------
 ## MVC@PHP
 library 
 
 ### Demo 
-- see: [DEMO](https://github.com/devmboehm/mvcat/tree/master/demo)
+- see: [DEMO](https://github.com/mdev-web/mvcat/tree/master/demo)
 - url: localhost/mvcat/demo
 
 ### Composer
