@@ -4,21 +4,20 @@ jobs:
   phplint:
     runs-on: ubuntu-latest
     steps:
-      - name: Action checkout
-        uses: actions/checkout@v1
+      - uses: actions/checkout@v1
       - name: PHP Lint - 1
         uses: michaelw90/PHP-Lint@2.1.0
   lint:
     runs-on: ubuntu-latest
     steps:
-      - name: Action checkout
-        uses: actions/checkout@v3          
+      - uses: actions/checkout@v3          
       - name: Lint PHP - 2
         uses: Firehed/lint-php-action@v1
   syntax:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: PHP Syntax Checker (Lint)
         uses: StephaneBour/actions-php-lint@8.1
         with:
-          dir: '././src'
+          dir: 'src'
