@@ -12,7 +12,7 @@ class View {
 
 	private $_i18n;
 
-	public public public function __construct() {}
+	public function __construct() {}
 	
 	public function setI18N(I18NService $i18n) {
 		$this->_i18n = $i18n;
