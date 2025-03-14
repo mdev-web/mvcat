@@ -1,6 +1,6 @@
 <?php
 
-namespace shared\mail;
+namespace shared\mailer;
 
 use InvalidArgumentException;
 
@@ -24,10 +24,10 @@ class Mail
     private ?string $userMessage = null;
 
   /** Constants for field names */
-    public const NAME = "userName";
-    public const EMAIL = "userEmail";
-    public const PHONE = "userPhone";
-    public const MSG = "userMessage";
+    public const string NAME = "userName";
+    public const string EMAIL = "userEmail";
+    public const string PHONE = "userPhone";
+    public const string MSG = "userMessage";
 
   /**
    * Mail constructor.
