@@ -1,36 +1,14 @@
 {
 	"autoload" : {
 		"psr-4" : {
-			"bomi\\mvcat\\" : "src/",
-			"bomi\\mvcat\\demo\\" : "demo/"
+			"shared\\" : "shared/"
 		}
 	},
 	"name" : "bomi/mvcat",
-	"description" : "PHP MVC library using configuration file",
-	"type" : "library",
-	"license" : "MIT",
-	"config" : {
-		"vendor-dir" : "libs/vendor"
-	},
-	"autoload-dev" : {
-		"psr-4" : {
-			"bomi\\mvcat\\test\\" : "test/"
-		}
-	},
-	"authors" : [{
-			"name" : "mboehm",
-			"role" : "dev"
-		}
-	],
+	"description" : "shared library for ME",
 	"require" : {
-		"php" : ">=8.1",
-		"tebru/gson-php" : "^0.7"
-	},
-	"keywords" : [
-		"mvc",
-		"framework",
-		"configuration",
-		"model view controller",
-		"template"
-	]
+		"php" : ">=8.2",
+    "symfony/mailer": "^7.2",
+    "vlucas/phpdotenv": "^5.6"
+  }
 }
