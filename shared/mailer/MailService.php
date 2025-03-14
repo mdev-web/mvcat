@@ -1,6 +1,6 @@
 <?php
 
-namespace shared\mail;
+namespace shared\mailer;
 
 class MailService
 {
