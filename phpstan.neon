@@ -1,0 +1,10 @@
+parameters:
+  level: 5
+  paths:
+    - shared
+    - tests
+  customRulesetUsed: true
+  excludePaths:
+    - app/dict/*
+    - app/config/*
+  tmpDir: .tmp

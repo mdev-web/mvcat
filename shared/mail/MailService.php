@@ -2,10 +2,9 @@
 
 namespace shared\mail;
 
-class MailService {
-  public function __construct()
-  {
-  }
-
-
+class MailService
+{
+    public function __construct()
+    {
+    }
 }
