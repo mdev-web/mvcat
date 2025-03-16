@@ -3,20 +3,25 @@
 namespace tests\helpers;
 
 use PHPUnit\Framework\TestCase;
+use shared\exceptions\EnvLoadingException;
 use shared\helpers\Env;
 use Exception;
 
 class EnvTest extends TestCase
 {
-    public function testEnv(): void
+  /**
+   * @throws EnvLoadingException
+   */
+    public function testEnvHappy(): void
     {
-        try {
-            echo getcwd() . "/tests/assets";
-            Env::load(getcwd() . "/tests/assets", ".test.env");
-            $this->assertTrue(isset($_ENV['KEY']));
-            $this->assertEquals("VALUE", $_ENV['KEY']);
-        } catch (Exception $e) {
-            $this->fail('An exception was thrown: ' . $e->getMessage());
-        }
+        Env::load(getcwd() . "/tests/assets", ".test.env");
+        $this->assertTrue(isset($_ENV['KEY']));
+        $this->assertEquals("VALUE", $_ENV['KEY']);
+    }
+
+    public function testEnvExcepted(): void
+    {
+        $this->expectException(EnvLoadingException::class);
+        Env::load(getcwd() . "/tests/assets", ".not.existing.env");
     }
 }

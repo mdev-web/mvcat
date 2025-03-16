@@ -6,12 +6,10 @@ use Exception;
 use shared\exceptions\BaseMailException;
 use shared\exceptions\ConfigurationException;
 use shared\exceptions\InvalidMailDataException;
-use Symfony\Component\Mailer\Exception\TransportException;
 use Symfony\Component\Mailer\Mailer;
 use Symfony\Component\Mailer\Transport;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
-use TheSeer\Tokenizer\NamespaceUriException;
 use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
@@ -21,17 +19,19 @@ use Twig\Loader\FilesystemLoader;
 class MailSender implements IMailSender
 {
     private MailConfig $mailConfig;
-
+    private Environment $twig;
 
     public function __construct(MailConfig $mailConfig)
     {
         $this->mailConfig = $mailConfig;
+        $loader = new FilesystemLoader($this->mailConfig->getTemplatePath());
+        $this->twig = new Environment($loader);
     }
 
   /**
    * @param string $dsn
    * @param Mail $model
-   * @throws InvalidMailDataException|ConfigurationException
+   * @throws InvalidMailDataException
    * @throws BaseMailException
    */
     public function send(string $dsn, Mail $model): void
@@ -40,7 +40,7 @@ class MailSender implements IMailSender
             $this->ensureValidUser($model);
             $mailer = new Mailer(Transport::fromDsn($dsn));
             $mailer->send($this->rawMessage($model));
-        } catch (InvalidMailDataException | ConfigurationException $e) {
+        } catch (InvalidMailDataException $e) {
             throw $e;
         } catch (TransportExceptionInterface | Exception $e) {
             throw new BaseMailException($e);
@@ -68,8 +68,6 @@ class MailSender implements IMailSender
    */
     private function rawMessage(Mail $model): Email
     {
-        $loader = new FilesystemLoader($this->mailConfig->getTemplatePath());
-        $twig = new Environment($loader);
 
         $data = [
           Mail::NAME => $model->getUserName(),
@@ -79,11 +77,16 @@ class MailSender implements IMailSender
           'currentDate' => date("d.m.Y H:i:s"),
         ];
 
-        return (new Email())
+        $email = (new Email())
         ->subject($this->mailConfig->getSubject())
         ->from($this->mailConfig->getFrom())
         ->to($this->mailConfig->getTo())
-        ->bcc($this->mailConfig->getBcc())
-        ->html($twig->render($this->mailConfig->getTemplateFile(), $data));
+        ->html($this->twig->render($this->mailConfig->getTemplateFile(), $data));
+
+        if ($this->mailConfig->getBcc() != null) {
+            $email->bcc($this->mailConfig->getBcc());
+        }
+
+        return $email;
     }
 }

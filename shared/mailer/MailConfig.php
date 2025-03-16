@@ -10,7 +10,7 @@ class MailConfig
     private string $subject;
     private Address $from;
     private Address $to;
-    private Address $bcc;
+    private ?Address $bcc;
     private string $templatePath;
     private string $templateFile;
 
@@ -25,7 +25,10 @@ class MailConfig
         $this->subject = $subject;
         $this->from = new Address($from[0], $from[1] == null ? '' : $from[1]);
         $this->to = new Address($to[0], $to[1] == null ? '' : $to[1]);
-        $this->bcc = new Address($bcc[0], $bcc[1] == null ? '' : $bcc[1]);
+        $this->bcc = null;
+        if ($bcc[0] != null) {
+            $this->bcc = new Address($bcc[0], $bcc[1] == null ? '' : $bcc[1]);
+        }
         $this->templatePath = $templatePath;
         $this->templateFile = $templateFile;
     }
@@ -68,7 +71,7 @@ class MailConfig
         return $this->to;
     }
 
-    public function getBcc(): Address
+    public function getBcc(): ?Address
     {
         return $this->bcc;
     }
