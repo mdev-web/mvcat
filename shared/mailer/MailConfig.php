@@ -18,16 +18,16 @@ class MailConfig
         string $subject,
         array $from,
         array $to,
-        array $bcc,
+        ?array $bcc,
         string $templatePath,
         string $templateFile
     ) {
         $this->subject = $subject;
-        $this->from = new Address($from[0], $from[1] == null ? '' : $from[1]);
-        $this->to = new Address($to[0], $to[1] == null ? '' : $to[1]);
+        $this->from = new Address($from[0], $from[1]);
+        $this->to = new Address($to[0], $to[1]);
         $this->bcc = null;
-        if ($bcc[0] != null) {
-            $this->bcc = new Address($bcc[0], $bcc[1] == null ? '' : $bcc[1]);
+        if ($bcc != null) {
+            $this->bcc = new Address($bcc[0], $bcc[1]);
         }
         $this->templatePath = $templatePath;
         $this->templateFile = $templateFile;
@@ -48,9 +48,9 @@ class MailConfig
 
         return new self(
             $config['subject'],
-            [$config['from']['email'], $config['from']['label']],
-            [$config['to']['email'], $config['to']['label']],
-            [$config['bcc']['email'], $config['bcc']['label']],
+            [$config['from']['email'], $config['from']['label'] ?? ''],
+            [$config['to']['email'], $config['to']['label'] ?? ''],
+            isset($config['bcc']) ?  [$config['bcc']['email'], $config['bcc']['label'] ?? ''] : null,
             $config['templatePath'],
             $config['templateFile']
         );

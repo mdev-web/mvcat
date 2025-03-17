@@ -26,7 +26,7 @@
     "optimize-autoloader":true
   },
   "scripts": {
-    "tests": "phpunit tests",
+    "tests": "phpunit tests --display-warnings",
     "phpcs": "phpcs --standard=PSR12 shared",
     "phpcbf": "phpcbf  --standard=PSR12 shared",
     "analyze": "vendor/bin/phpstan analyze -c phpstan.neon --memory-limit 1G",
