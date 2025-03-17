@@ -4,6 +4,7 @@ namespace shared\helpers;
 
 use Dotenv\Dotenv;
 use Exception;
+use shared\exceptions\EnvLoadingException;
 
 /**
  * Class Env
@@ -25,18 +26,14 @@ class Env
    * @param string $envPath The directory where the ENV file is located.
    * @param string $envFile The name of the ENV file.
    *
-   * @throws Exception If an error occurs while loading the environment file.
+   * @throws EnvLoadingException If an error occurs while loading the environment file.
    */
     public static function load(string $envPath, string $envFile): void
     {
         try {
             Dotenv::createMutable($envPath, $envFile)->load();
         } catch (Exception $e) {
-            throw new Exception(
-                sprintf("An error occurred while loading the environment file '%s'.", $envFile),
-                500,
-                $e
-            );
+            throw new EnvLoadingException($envFile, $e);
         }
     }
 }
