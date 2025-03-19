@@ -29,10 +29,7 @@ class MailSender implements IMailSender
     }
 
   /**
-   * @param string $dsn
-   * @param Mail $model
-   * @throws InvalidMailDataException
-   * @throws BaseMailException
+   * @inheritDoc
    */
     public function send(string $dsn, Mail $model): void
     {
